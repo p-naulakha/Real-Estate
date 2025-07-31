@@ -178,7 +178,7 @@ const getPropertyById = (id: string) => {
       ],
       agent: {
         name: "Guruji Real Estate",
-        phone: "+91 9999267730",
+        phone: "+91 9711161007",
         email: "Gurujirealestate005@gmail.com",
       },
     },
@@ -217,7 +217,7 @@ const getPropertyById = (id: string) => {
       ],
       agent: {
         name: "Guruji Real Estate",
-        phone: "+91 9999267730",
+        phone: "+91 97111610077",
         email: "Gurujirealestate005@gmail.com",
       },
     },
@@ -256,7 +256,7 @@ const getPropertyById = (id: string) => {
       ],
       agent: {
         name: "Guruji Real Estate",
-        phone: "+91 9999267730",
+        phone: "+91 9711161007",
         email: "Gurujirealestate005@gmail.com",
       },
     },
@@ -295,7 +295,7 @@ const getPropertyById = (id: string) => {
       ],
       agent: {
         name: "Guruji Real Estate",
-        phone: "+91 9999267730",
+        phone: "+91 9711161007",
         email: "Gurujirealestate005@gmail.com",
       },
     },
@@ -334,7 +334,7 @@ const getPropertyById = (id: string) => {
       ],
       agent: {
         name: "Guruji Real Estate",
-        phone: "+91 9999267730",
+        phone: "+91 97111610077",
         email: "Gurujirealestate005@gmail.com",
       },
     },
@@ -373,7 +373,7 @@ const getPropertyById = (id: string) => {
       ],
       agent: {
         name: "Guruji Real Estate",
-        phone: "+91 9999267730",
+        phone: "+91 9711161007",
         email: "Gurujirealestate005@gmail.com",
       },
     },
@@ -432,7 +432,7 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                 <span>Gurujirealestate005@gmail.com</span>
               </div>
             </div>
-            <div>Greater Noida, Uttar Pradesh, India</div>
+            <div>Shop No. F-15, Krishna Apra Plaza, Greater Noida, UP</div>
           </div>
         </div>
         <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">

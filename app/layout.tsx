@@ -1,24 +1,26 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import "./globals.css"
+import WhatsAppButton from "@/components/WhatsAppButton";
 
-const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Guruji Real Estate - Premium Properties",
-  description: "Find your dream home with Guruji Real Estate. Premium properties in Mumbai and surrounding areas.",
-    generator: 'v0.dev'
-}
+  description: "Find your dream home with Guruji Real Estate.",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        {children}
+        <WhatsAppButton />
+      </body>
     </html>
-  )
+  );
 }
+

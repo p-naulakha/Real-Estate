@@ -195,10 +195,70 @@ const testimonials = [
     text: "Highly recommend Guruji Real Estate for their transparency and honest guidance. They truly understand client needs and deliver excellent results.",
   },
 ]
+import { useState } from "react"
 
 export default function HomePage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [searchLocation, setSearchLocation] = useState("")
+  const [searchType, setSearchType] = useState("")
+  const [searchBudget, setSearchBudget] = useState("")
+  const [filteredProperties, setFilteredProperties] = useState(properties)
+
   const handleWhatsApp = () => {
-    window.open("https://wa.me/919999267730?text=Hello, I'm interested in your real estate services", "_blank")
+    window.open("https://wa.me/918448966285?text=Hello, I'm interested in your real estate services", "_blank")
+  }
+
+  const handleSearch = () => {
+    let filtered = properties
+
+    // Filter by location
+    if (searchLocation && searchLocation !== "all") {
+      filtered = filtered.filter((property) => property.location.toLowerCase().includes(searchLocation.toLowerCase()))
+    }
+
+    // Filter by property type
+    if (searchType && searchType !== "all") {
+      filtered = filtered.filter((property) => property.type.toLowerCase() === searchType.toLowerCase())
+    }
+
+    // Filter by budget range
+    if (searchBudget && searchBudget !== "all") {
+      filtered = filtered.filter((property) => {
+        // Extract numeric value from price string
+        const priceStr = property.price.replace(/[^\d.]/g, '')
+        const priceValue = parseFloat(priceStr)
+        
+        // Convert to Crores based on whether it's Lakh or Crore
+        const isLakh = property.price.includes("Lakh")
+        const priceInCrores = isLakh ? priceValue / 100 : priceValue
+
+        // Apply budget filter
+        switch (searchBudget) {
+          case "1-2":
+            return priceInCrores >= 1 && priceInCrores <= 2
+          case "2-5":
+            return priceInCrores > 2 && priceInCrores <= 5
+          case "5-10":
+            return priceInCrores > 5 && priceInCrores <= 10
+          case "10+":
+            return priceInCrores > 10
+          default:
+            return true
+        }
+      })
+    }
+
+    setFilteredProperties(filtered)
+
+    // Scroll to properties section
+    document.getElementById("properties")?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  const resetSearch = () => {
+    setSearchLocation("")
+    setSearchType("")
+    setSearchBudget("")
+    setFilteredProperties(properties)
   }
 
   return (
@@ -210,7 +270,7 @@ export default function HomePage() {
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                <span>+91 9999267730</span>
+                <span>+91 9711161007</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
@@ -254,7 +314,7 @@ export default function HomePage() {
               <MessageCircle className="w-4 h-4 mr-2" />
               WhatsApp
             </Button>
-            <Button className="bg-orange-500 hover:bg-orange-600">List Property</Button>
+           
           </div>
         </nav>
       </header>
@@ -285,6 +345,7 @@ export default function HomePage() {
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                   <Select value={searchLocation} onValueChange={setSearchLocation}></Select>
                   <Select>
                     <SelectTrigger>
                       <SelectValue placeholder="Select Location" />
@@ -299,6 +360,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
+                  <Select value={searchType} onValueChange={setSearchType}></Select>
                   <Select>
                     <SelectTrigger>
                       <SelectValue placeholder="Any Type" />
@@ -313,6 +375,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Budget Range</label>
+                  <Select value={searchBudget} onValueChange={setSearchBudget}></Select>
                   <Select>
                     <SelectTrigger>
                       <SelectValue placeholder="Any Budget" />
@@ -326,7 +389,19 @@ export default function HomePage() {
                   </Select>
                 </div>
                 <div className="flex items-end">
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700">Search</Button>
+                  <div className="w-full space-y-2">
+                    <Button
+                      onClick={handleSearch}
+                      className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-base font-medium"
+                    >
+                      Search Properties
+                    </Button>
+                    {(searchLocation || searchType || searchBudget) && (
+                      <Button onClick={resetSearch} variant="outline" className="w-full h-10 text-sm bg-transparent">
+                        Clear Filters
+                      </Button>
+                    )}
+                  </div>
                 </div>
               </div>
             </Card>
@@ -366,11 +441,37 @@ export default function HomePage() {
             <p className="text-lg text-gray-600">
               Discover our handpicked selection of premium properties that offer exceptional value and luxury living
             </p>
+            {(searchLocation || searchType || searchBudget) && (
+              <div className="mt-4 flex items-center justify-center">
+                <div className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm">
+                  {filteredProperties.length} properties found
+                  {searchLocation && ` in ${searchLocation}`}
+                  {searchType && ` • ${searchType}`}
+                  {searchBudget && ` • ₹${searchBudget} range`}
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {properties.map((property) => (
-              <Card key={property.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+            {filteredProperties.length === 0 ? (
+              <div className="col-span-full text-center py-12">
+                <div className="max-w-md mx-auto">
+                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Home className="w-8 h-8 text-gray-400" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">No Properties Found</h3>
+                  <p className="text-gray-600 mb-4">
+                    We couldn't find any properties matching your search criteria. Try adjusting your filters.
+                  </p>
+                  <Button onClick={resetSearch} variant="outline">
+                    Clear All Filters
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              filteredProperties.map((property) => (
+                <Card key={property.id} className="overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <Image
                     src={property.image || "/placeholder.svg"}
@@ -423,7 +524,8 @@ export default function HomePage() {
                   </div>
                 </CardContent>
               </Card>
-            ))}
+              ))
+            )}
           </div>
           <div className="text-center mt-12">
             <Link href="/properties">
@@ -590,8 +692,10 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Phone Numbers</h4>
-                    <p className="text-gray-600">+91 9999267730</p>
+                    <p className="text-gray-600">+91 9711161007</p>
                     <p className="text-gray-600">+91 9313069464</p>
+                    <p className="text-gray-600">+91 9873734102</p>
+                    <p className="text-gray-600">+91 8448966285</p>
                     <Button onClick={handleWhatsApp} className="mt-2 bg-green-500 hover:bg-green-600">
                       <MessageCircle className="w-4 h-4 mr-2" />
                       WhatsApp Us
@@ -615,22 +719,30 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Office Address</h4>
-                    <p className="text-gray-600">Knowledge Park 3, Greater Noida, Uttar Pradesh, India</p>
+                    <p className="text-gray-600">Shop No. F-15, I floor</p>
+                    <p className="text-gray-600">Krishna Apra Plaza, Commercial Belt</p>
+                    <p className="text-gray-600">Greater Noida, GB Nagar, Uttar Pradesh</p>
                   </div>
                 </div>
               </div>
 
               {/* Map */}
               <div className="mt-8">
-                <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
-                  <div className="text-center text-gray-600">
-                    <MapPin className="w-12 h-12 mx-auto mb-2" />
-                    <p>Interactive Map</p>
-                    <p className="text-sm">Knowledge Park 3, Greater Noida</p>
-                  </div>
+                <div className="rounded-lg overflow-hidden h-64">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.8234567890123!2d77.4876543!3d28.5876543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM1JzE1LjYiTiA3N8KwMjknMTUuNiJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin&q=Shop+No.+F-15,+I+floor,+krishna+Apra+Plaza,+Commercial+belt,+greater+noida,+GB+nagar+uttar+pradesh"
+                    width="100%"
+                    height="256"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Guruji Real Estate Office Location"
+                  ></iframe>
                 </div>
               </div>
             </div>
+
 
             <div>
               <h3 className="text-2xl font-semibold mb-6">Send Us a Message</h3>
@@ -762,15 +874,18 @@ export default function HomePage() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
               <div className="space-y-2 text-gray-400">
-                <p>+91 9999267730</p>
+                <p>+91 9711161007</p>
+                <p>+919313069464</p>
+                <p>+919873734102</p>
+                <p>+918448966285</p>
                 <p>Gurujirealestate005@gmail.com</p>
-                <p>Knowledge Park 3, Greater Noida, UP</p>
+                <p>Krishna Apra Plaza Commercial Belt , Greater Noida, UP</p>
               </div>
             </div>
           </div>
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Guruji Real Estate. All rights reserved.</p>
+            <p>&copy;  Guruji Real Estate. All rights reserved.</p>
           </div>
         </div>
       </footer>

@@ -7,7 +7,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
-import { MapPin, Bed, Bath, Square, Heart, Eye, Phone, Mail, MessageCircle, Search, ArrowLeft } from "lucide-react"
+import { MapPin, Bed, Bath, Square, Heart, Eye, Phone, Mail, MessageCircle, Search, ArrowLeft, Home } from "lucide-react"
+import { useState, useMemo } from "react"
 
 const properties = [
   {
@@ -49,7 +50,7 @@ const properties = [
     bathrooms: 2,
     area: "1,100 sq ft",
     areaValue: 1100,
-    image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image:"https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
     featured: false,
   },
   {
@@ -63,7 +64,7 @@ const properties = [
     bathrooms: 4,
     area: "2,800 sq ft",
     areaValue: 2800,
-    image: "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image:"https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
     featured: true,
   },
   {
@@ -139,9 +140,86 @@ const properties = [
 ]
 
 export default function AllPropertiesPage() {
+  const [searchQuery, setSearchQuery] = useState("")
+  const [propertyType, setPropertyType] = useState("")
+  const [budgetRange, setBudgetRange] = useState("")
+  const [sortBy, setSortBy] = useState("")
+
   const handleWhatsApp = () => {
     window.open("https://wa.me/919711161007?text=Hello, I'm interested in your real estate services", "_blank")
   }
+
+  // Filter and sort properties
+  const filteredAndSortedProperties = useMemo(() => {
+    let filtered = properties
+
+    // Search by title or location
+    if (searchQuery) {
+      filtered = filtered.filter(
+        (property) =>
+          property.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          property.location.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    }
+
+    // Filter by property type
+    if (propertyType && propertyType !== "all") {
+      filtered = filtered.filter((property) => property.type.toLowerCase() === propertyType.toLowerCase())
+    }
+
+    // Filter by budget range
+    if (budgetRange && budgetRange !== "all") {
+      filtered = filtered.filter((property) => {
+        const priceInCrores = property.priceValue / 10000000 // Convert to Crores
+
+        switch (budgetRange) {
+          case "0-1":
+            return priceInCrores < 1
+          case "1-3":
+            return priceInCrores >= 1 && priceInCrores <= 3
+          case "3-5":
+            return priceInCrores > 3 && priceInCrores <= 5
+          case "5-10":
+            return priceInCrores > 5 && priceInCrores <= 10
+          case "10+":
+            return priceInCrores > 10
+          default:
+            return true
+        }
+      })
+    }
+
+    // Sort properties
+    if (sortBy) {
+      filtered = [...filtered].sort((a, b) => {
+        switch (sortBy) {
+          case "price-low":
+            return a.priceValue - b.priceValue
+          case "price-high":
+            return b.priceValue - a.priceValue
+          case "area-large":
+            return b.areaValue - a.areaValue
+          case "area-small":
+            return a.areaValue - b.areaValue
+          case "newest":
+            return b.id - a.id
+          default:
+            return 0
+        }
+      })
+    }
+
+    return filtered
+  }, [searchQuery, propertyType, budgetRange, sortBy])
+
+  const clearAllFilters = () => {
+    setSearchQuery("")
+    setPropertyType("")
+    setBudgetRange("")
+    setSortBy("")
+  }
+
+  const hasActiveFilters = searchQuery || propertyType || budgetRange || sortBy
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -159,7 +237,7 @@ export default function AllPropertiesPage() {
                 <span>Gurujirealestate005@gmail.com</span>
               </div>
             </div>
-            <div>Greater Noida, Uttar Pradesh, India</div>
+            <div>"Shop No. F-15, Krishna Apra Plaza , Greater Noida, UP"</div>
           </div>
         </div>
         <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
@@ -196,7 +274,7 @@ export default function AllPropertiesPage() {
               <MessageCircle className="w-4 h-4 mr-2" />
               WhatsApp
             </Button>
-            <Button className="bg-orange-500 hover:bg-orange-600">List Property</Button>
+            
           </div>
         </nav>
       </header>
@@ -219,7 +297,8 @@ export default function AllPropertiesPage() {
             </p>
             <div className="flex items-center justify-center text-sm text-gray-500">
               <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">
-                {properties.length} Properties Available
+                {filteredAndSortedProperties.length} of {properties.length} Properties
+                {hasActiveFilters && " (Filtered)"}
               </span>
             </div>
           </div>
@@ -233,11 +312,16 @@ export default function AllPropertiesPage() {
             <div className="md:col-span-2">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                <Input placeholder="Search properties..." className="pl-10" />
+                <Input 
+                  placeholder="Search properties..." 
+                  className="pl-10"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
               </div>
             </div>
             <div>
-              <Select>
+              <Select value={propertyType} onValueChange={setPropertyType}>
                 <SelectTrigger>
                   <SelectValue placeholder="Property Type" />
                 </SelectTrigger>
@@ -253,7 +337,7 @@ export default function AllPropertiesPage() {
               </Select>
             </div>
             <div>
-              <Select>
+              <Select value={budgetRange} onValueChange={setBudgetRange}>
                 <SelectTrigger>
                   <SelectValue placeholder="Budget Range" />
                 </SelectTrigger>
@@ -268,7 +352,7 @@ export default function AllPropertiesPage() {
               </Select>
             </div>
             <div>
-              <Select>
+              <Select value={sortBy} onValueChange={setSortBy}>
                 <SelectTrigger>
                   <SelectValue placeholder="Sort By" />
                 </SelectTrigger>
@@ -282,6 +366,52 @@ export default function AllPropertiesPage() {
               </Select>
             </div>
           </div>
+          
+          {/* Active filters display */}
+          {hasActiveFilters && (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {searchQuery && (
+                <Badge variant="secondary" className="px-3 py-1">
+                  Search: "{searchQuery}"
+                  <button onClick={() => setSearchQuery("")} className="ml-2 text-gray-500 hover:text-gray-700">
+                    ×
+                  </button>
+                </Badge>
+              )}
+              {propertyType && propertyType !== "all" && (
+                <Badge variant="secondary" className="px-3 py-1">
+                  Type: {propertyType}
+                  <button onClick={() => setPropertyType("")} className="ml-2 text-gray-500 hover:text-gray-700">
+                    ×
+                  </button>
+                </Badge>
+              )}
+              {budgetRange && budgetRange !== "all" && (
+                <Badge variant="secondary" className="px-3 py-1">
+                  Budget: {budgetRange}
+                  <button onClick={() => setBudgetRange("")} className="ml-2 text-gray-500 hover:text-gray-700">
+                    ×
+                  </button>
+                </Badge>
+              )}
+              {sortBy && (
+                <Badge variant="secondary" className="px-3 py-1">
+                  Sorted by: {sortBy.replace("-", " ")}
+                  <button onClick={() => setSortBy("")} className="ml-2 text-gray-500 hover:text-gray-700">
+                    ×
+                  </button>
+                </Badge>
+              )}
+              <Button 
+                onClick={clearAllFilters} 
+                variant="outline" 
+                size="sm" 
+                className="ml-2"
+              >
+                Clear All
+              </Button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -289,63 +419,80 @@ export default function AllPropertiesPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {properties.map((property) => (
-              <Card key={property.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="relative">
-                  <Image
-                    src={property.image || "/placeholder.svg"}
-                    alt={property.title}
-                    width={400}
-                    height={300}
-                    className="w-full h-64 object-cover"
-                  />
-                  {property.featured && <Badge className="absolute top-4 left-4 bg-orange-500">Featured</Badge>}
-                  <Badge className="absolute top-4 right-4 bg-blue-600">{property.type}</Badge>
-                  <div className="absolute top-4 right-16 flex gap-2">
-                    <Button size="icon" variant="secondary" className="w-8 h-8">
-                      <Heart className="w-4 h-4" />
-                    </Button>
-                    <Button size="icon" variant="secondary" className="w-8 h-8">
-                      <Eye className="w-4 h-4" />
-                    </Button>
+            {filteredAndSortedProperties.length === 0 ? (
+              <div className="col-span-full text-center py-12">
+                <div className="max-w-md mx-auto">
+                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Home className="w-8 h-8 text-gray-400" />
                   </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">No Properties Found</h3>
+                  <p className="text-gray-600 mb-4">
+                    We couldn't find any properties matching your search criteria. Try adjusting your filters.
+                  </p>
+                  <Button onClick={clearAllFilters} variant="outline">
+                    Clear All Filters
+                  </Button>
                 </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{property.title}</h3>
-                  <div className="flex items-center text-gray-600 mb-4">
-                    <MapPin className="w-4 h-4 mr-1" />
-                    <span className="text-sm">{property.location}</span>
-                  </div>
-                  <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
-                    {property.bedrooms > 0 && (
-                      <div className="flex items-center">
-                        <Bed className="w-4 h-4 mr-1" />
-                        <span>{property.bedrooms}</span>
-                      </div>
-                    )}
-                    <div className="flex items-center">
-                      <Bath className="w-4 h-4 mr-1" />
-                      <span>{property.bathrooms}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Square className="w-4 h-4 mr-1" />
-                      <span>{property.area}</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="text-2xl font-bold text-blue-600">{property.price}</div>
-                    <div className="flex gap-2">
-                      <Button onClick={handleWhatsApp} size="sm" className="bg-green-500 hover:bg-green-600">
-                        <MessageCircle className="w-4 h-4" />
+              </div>
+            ) : (
+              filteredAndSortedProperties.map((property) => (
+                <Card key={property.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+                  <div className="relative">
+                    <Image
+                      src={property.image || "/placeholder.svg"}
+                      alt={property.title}
+                      width={400}
+                      height={300}
+                      className="w-full h-64 object-cover"
+                    />
+                    {property.featured && <Badge className="absolute top-4 left-4 bg-orange-500">Featured</Badge>}
+                    <Badge className="absolute top-4 right-4 bg-blue-600">{property.type}</Badge>
+                    <div className="absolute top-4 right-16 flex gap-2">
+                      <Button size="icon" variant="secondary" className="w-8 h-8">
+                        <Heart className="w-4 h-4" />
                       </Button>
-                      <Link href={`/property/${property.id}`}>
-                        <Button size="sm">View Details</Button>
-                      </Link>
+                      <Button size="icon" variant="secondary" className="w-8 h-8">
+                        <Eye className="w-4 h-4" />
+                      </Button>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">{property.title}</h3>
+                    <div className="flex items-center text-gray-600 mb-4">
+                      <MapPin className="w-4 h-4 mr-1" />
+                      <span className="text-sm">{property.location}</span>
+                    </div>
+                    <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+                      {property.bedrooms > 0 && (
+                        <div className="flex items-center">
+                          <Bed className="w-4 h-4 mr-1" />
+                          <span>{property.bedrooms}</span>
+                        </div>
+                      )}
+                      <div className="flex items-center">
+                        <Bath className="w-4 h-4 mr-1" />
+                        <span>{property.bathrooms}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Square className="w-4 h-4 mr-1" />
+                        <span>{property.area}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="text-2xl font-bold text-blue-600">{property.price}</div>
+                      <div className="flex gap-2">
+                        <Button onClick={handleWhatsApp} size="sm" className="bg-green-500 hover:bg-green-600">
+                          <MessageCircle className="w-4 h-4" />
+                        </Button>
+                        <Link href={`/property/${property.id}`}>
+                          <Button size="sm">View Details</Button>
+                        </Link>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))
+            )}
           </div>
         </div>
       </section>
@@ -443,15 +590,16 @@ export default function AllPropertiesPage() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
               <div className="space-y-2 text-gray-400">
-                <p>+91 9999267730</p>
+                <p>+91 9711161007</p>
                 <p>Gurujirealestate005@gmail.com</p>
-                <p>Knowledge Park 3, Greater Noida, UP</p>
+                <p>Shop No. F-15, Krishna Apra Plaza</p>
+                <p>Greater Noida, GB Nagar, UP</p>
               </div>
             </div>
           </div>
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Guruji Real Estate. All rights reserved.</p>
+            <p>&copy; Guruji Real Estate. All rights reserved.</p>
           </div>
         </div>
       </footer>
