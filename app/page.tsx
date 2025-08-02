@@ -23,6 +23,8 @@ import {
   Mail,
   MessageCircle,
   ArrowRight,
+  Menu,
+  X,
 } from "lucide-react"
 
 const properties = [
@@ -173,7 +175,7 @@ const testimonials = [
   {
     id: 1,
     name: "Priya Sharma",
-    location: "Mumbai",
+    location: "Delhi",
     image: "/images/client-priya.png",
     rating: 5,
     text: "Guruji Real Estate made my home buying journey incredibly smooth. Their expertise and dedication helped me find the perfect property within my budget.",
@@ -181,7 +183,7 @@ const testimonials = [
   {
     id: 2,
     name: "Rajesh Kumar",
-    location: "Pune",
+    location: "Chandigarh",
     image: "/images/client-rajesh.png",
     rating: 5,
     text: "Exceptional service and professional approach. They handled all the legal formalities and made the entire process hassle-free.",
@@ -189,7 +191,7 @@ const testimonials = [
   {
     id: 3,
     name: "Anita Desai",
-    location: "Mumbai",
+    location: "Greater Noida",
     image: "/images/client-anita.png",
     rating: 5,
     text: "Highly recommend Guruji Real Estate for their transparency and honest guidance. They truly understand client needs and deliver excellent results.",
@@ -264,64 +266,125 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="bg-blue-600 text-white py-2 px-4">
-          <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
+      <header className="bg-white shadow-sm border-b sticky top-0 z-50">
+        <div className="bg-blue-600 text-white py-2 px-4 hidden sm:block">
+          <div className="max-w-7xl mx-auto flex justify-between items-center text-xs sm:text-sm">
+            <div className="flex items-center gap-2 sm:gap-6">
+              <div className="flex items-center gap-1 sm:gap-2">
+                <Phone className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span>+91 9711161007</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
-                <span>Gurujirealestate005@gmail.com</span>
+              <div className="flex items-center gap-1 sm:gap-2">
+                <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Gurujirealestate005@gmail.com</span>
+                <span className="sm:hidden">Email Us</span>
               </div>
             </div>
-            <div>Greater Noida, Uttar Pradesh, India</div>
+            <div className="hidden md:block text-xs sm:text-sm">Greater Noida, Uttar Pradesh, India</div>
           </div>
         </div>
-        <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <nav className="max-w-7xl mx-auto px-4 py-3 sm:py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Image
               src="/images/guruji-logo.png"
               alt="Guruji Real Estate Logo"
-              width={50}
-              height={50}
-              className="rounded-lg"
+              width={40}
+              height={40}
+              className="rounded-lg sm:w-[50px] sm:h-[50px]"
             />
             <div>
-              <h1 className="text-xl font-bold text-blue-600">Guruji Real Estate</h1>
-              <p className="text-sm text-gray-600">Premium Properties</p>
+              <h1 className="text-lg sm:text-xl font-bold text-blue-600">Guruji Real Estate</h1>
+            
             </div>
           </div>
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-gray-700 hover:text-blue-600">
+          <div className="hidden md:flex items-center gap-4 lg:gap-8">
+            <Link href="/" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
               Home
             </Link>
-            <Link href="#properties" className="text-gray-700 hover:text-blue-600">
+            <Link href="#properties" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
               Properties
             </Link>
-            <Link href="#services" className="text-gray-700 hover:text-blue-600">
+            <Link href="#services" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
               Services
             </Link>
-            <Link href="#about" className="text-gray-700 hover:text-blue-600">
+            <Link href="#about" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
               About
             </Link>
-            <Link href="#contact" className="text-gray-700 hover:text-blue-600">
+            <Link href="#contact" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
               Contact
             </Link>
-            <Button onClick={handleWhatsApp} className="bg-green-500 hover:bg-green-600">
-              <MessageCircle className="w-4 h-4 mr-2" />
-              WhatsApp
+            <Button onClick={handleWhatsApp} className="bg-green-500 hover:bg-green-600 text-xs sm:text-sm">
+              <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+              <span className="hidden sm:inline">WhatsApp</span>
             </Button>
-           
+          </div>
+          <div className="md:hidden flex items-center gap-2">
+            <Button onClick={handleWhatsApp} size="sm" className="bg-green-500 hover:bg-green-600 p-2">
+              <MessageCircle className="w-4 h-4" />
+            </Button>
+            <Button variant="ghost" size="sm" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2">
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </Button>
           </div>
         </nav>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-gray-200 py-4 px-4">
+            <div className="flex flex-col space-y-3">
+              <Link
+                href="/"
+                className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                href="#properties"
+                className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Properties
+              </Link>
+              <Link
+                href="#services"
+                className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Services
+              </Link>
+              <Link
+                href="#about"
+                className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About
+              </Link>
+              <Link
+                href="#contact"
+                className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+              <div className="pt-2 space-y-2">
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <Phone className="w-4 h-4" />
+                  <span>+91 9711161007</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <Mail className="w-4 h-4" />
+                  <span>Gurujirealestate005@gmail.com</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
       <section
-        className="relative h-[600px] bg-gradient-to-r from-black/70 to-black/50"
+        className="relative h-[400px] sm:h-[500px] md:h-[600px] bg-gradient-to-r from-black/70 to-black/50"
         style={{
           backgroundImage:
             'url("https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop")',
@@ -331,23 +394,22 @@ export default function HomePage() {
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"></div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white max-w-4xl px-4 relative z-10">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
+        <div className="absolute inset-0 flex items-center justify-center px-4">
+          <div className="text-center text-white max-w-4xl relative z-10">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4">
               Find Your <span className="text-orange-500">Dream Home</span>
             </h1>
-            <p className="text-xl mb-8">
-              Discover premium properties with Guruji Real Estate. Your trusted partner in real estate excellence.
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8">
+              Discover properties with Guruji Real Estate. Your trusted partner in real estate excellence.
             </p>
 
             {/* Search Form */}
-            <Card className="bg-white/95 backdrop-blur-sm p-6 max-w-4xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <Card className="hidden bg-white/95 backdrop-blur-sm p-4 sm:p-6 max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
-                   <Select value={searchLocation} onValueChange={setSearchLocation}></Select>
-                  <Select>
-                    <SelectTrigger>
+                  <Select value={searchLocation} onValueChange={setSearchLocation}>
+                    <SelectTrigger className="h-12">
                       <SelectValue placeholder="Select Location" />
                     </SelectTrigger>
                     <SelectContent>
@@ -360,9 +422,8 @@ export default function HomePage() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
-                  <Select value={searchType} onValueChange={setSearchType}></Select>
-                  <Select>
-                    <SelectTrigger>
+                  <Select value={searchType} onValueChange={setSearchType}>
+                    <SelectTrigger className="h-12">
                       <SelectValue placeholder="Any Type" />
                     </SelectTrigger>
                     <SelectContent>
@@ -375,9 +436,8 @@ export default function HomePage() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Budget Range</label>
-                  <Select value={searchBudget} onValueChange={setSearchBudget}></Select>
-                  <Select>
-                    <SelectTrigger>
+                  <Select value={searchBudget} onValueChange={setSearchBudget}>
+                    <SelectTrigger className="h-12">
                       <SelectValue placeholder="Any Budget" />
                     </SelectTrigger>
                     <SelectContent>
@@ -392,12 +452,12 @@ export default function HomePage() {
                   <div className="w-full space-y-2">
                     <Button
                       onClick={handleSearch}
-                      className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-base font-medium"
+                      className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-sm sm:text-base font-medium"
                     >
                       Search Properties
                     </Button>
                     {(searchLocation || searchType || searchBudget) && (
-                      <Button onClick={resetSearch} variant="outline" className="w-full h-10 text-sm bg-transparent">
+                      <Button onClick={resetSearch} variant="outline" className="w-full h-10 text-xs sm:text-sm bg-transparent">
                         Clear Filters
                       </Button>
                     )}
@@ -410,40 +470,41 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-blue-600 text-white py-16">
+      <section className="bg-blue-600 text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">1000+</div>
-              <div className="text-lg">Properties Sold</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 mb-2">1000+</div>
+              <div className="text-sm sm:text-base md:text-lg">Properties Sold</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">500+</div>
-              <div className="text-lg">Happy Clients</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 mb-2">1000+</div>
+              <div className="text-sm sm:text-base md:text-lg">Happy Clients</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">15+</div>
-              <div className="text-lg">Years Experience</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 mb-2">15+</div>
+              <div className="text-sm sm:text-base md:text-lg">Years Experience</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">50+</div>
-              <div className="text-lg">Team Members</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 mb-2">50+</div>
+              <div className="text-sm sm:text-base md:text-lg">Team Members</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Featured Properties */}
-      <section id="properties" className="py-16 bg-gray-50">
+      {/*
+      <section id="properties" className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Properties</h2>
-            <p className="text-lg text-gray-600">
-              Discover our handpicked selection of premium properties that offer exceptional value and luxury living
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Featured Properties</h2>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600">
+              Discover our handpicked selection of properties that offer exceptional value and luxury living
             </p>
             {(searchLocation || searchType || searchBudget) && (
               <div className="mt-4 flex items-center justify-center">
-                <div className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm">
+                <div className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-xs sm:text-sm">
                   {filteredProperties.length} properties found
                   {searchLocation && ` in ${searchLocation}`}
                   {searchType && ` • ${searchType}`}
@@ -453,7 +514,7 @@ export default function HomePage() {
             )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredProperties.length === 0 ? (
               <div className="col-span-full text-center py-12">
                 <div className="max-w-md mx-auto">
@@ -472,90 +533,93 @@ export default function HomePage() {
             ) : (
               filteredProperties.map((property) => (
                 <Card key={property.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="relative">
-                  <Image
-                    src={property.image || "/placeholder.svg"}
-                    alt={property.title}
-                    width={400}
-                    height={300}
-                    className="w-full h-64 object-cover"
-                  />
-                  {property.featured && <Badge className="absolute top-4 left-4 bg-orange-500">Featured</Badge>}
-                  <Badge className="absolute top-4 right-4 bg-blue-600">{property.type}</Badge>
-                  <div className="absolute top-4 right-16 flex gap-2">
-                    <Button size="icon" variant="secondary" className="w-8 h-8">
-                      <Heart className="w-4 h-4" />
-                    </Button>
-                    <Button size="icon" variant="secondary" className="w-8 h-8">
-                      <Eye className="w-4 h-4" />
-                    </Button>
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{property.title}</h3>
-                  <div className="flex items-center text-gray-600 mb-4">
-                    <MapPin className="w-4 h-4 mr-1" />
-                    <span className="text-sm">{property.location}</span>
-                  </div>
-                  <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
-                    <div className="flex items-center">
-                      <Bed className="w-4 h-4 mr-1" />
-                      <span>{property.bedrooms}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Bath className="w-4 h-4 mr-1" />
-                      <span>{property.bathrooms}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Square className="w-4 h-4 mr-1" />
-                      <span>{property.area}</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="text-2xl font-bold text-blue-600">{property.price}</div>
-                    <div className="flex gap-2">
-                      <Button onClick={handleWhatsApp} size="sm" className="bg-green-500 hover:bg-green-600">
-                        <MessageCircle className="w-4 h-4" />
+                  <div className="relative">
+                    <Image
+                      src={property.image || "/placeholder.svg"}
+                      alt={property.title}
+                      width={400}
+                      height={300}
+                      className="w-full h-48 sm:h-64 object-cover"
+                    />
+                    {property.featured && <Badge className="absolute top-3 left-3 bg-orange-500 text-xs sm:text-sm">Featured</Badge>}
+                    <Badge className="absolute top-3 right-3 bg-blue-600 text-xs sm:text-sm">{property.type}</Badge>
+                    <div className="absolute top-3 right-16 flex gap-1 sm:gap-2">
+                      <Button size="icon" variant="secondary" className="w-8 h-8 sm:w-9 sm:h-9">
+                        <Heart className="w-3 h-3 sm:w-4 sm:h-4" />
                       </Button>
-                      <Link href={`/property/${property.id}`}>
-                        <Button size="sm">View Details</Button>
-                      </Link>
+                      <Button size="icon" variant="secondary" className="w-8 h-8 sm:w-9 sm:h-9">
+                        <Eye className="w-3 h-3 sm:w-4 sm:h-4" />
+                      </Button>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                  <CardContent className="p-4 sm:p-6">
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2 line-clamp-2">{property.title}</h3>
+                    <div className="flex items-center text-gray-600 mb-3 sm:mb-4">
+                      <MapPin className="w-4 h-4 mr-1 flex-shrink-0" />
+                      <span className="text-xs sm:text-sm line-clamp-1">{property.location}</span>
+                    </div>
+                    <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
+                      <div className="flex items-center">
+                        <Bed className="w-4 h-4 mr-1" />
+                        <span>{property.bedrooms}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Bath className="w-4 h-4 mr-1" />
+                        <span>{property.bathrooms}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Square className="w-4 h-4 mr-1" />
+                        <span>{property.area}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="text-lg sm:text-xl md:text-2xl font-bold text-blue-600">{property.price}</div>
+                      <div className="flex gap-1 sm:gap-2">
+                        <Button onClick={handleWhatsApp} size="sm" className="bg-green-500 hover:bg-green-600 px-2 sm:px-3">
+                          <MessageCircle className="w-4 h-4" />
+                        </Button>
+                        <Link href={`/property/${property.id}`}>
+                          <Button size="sm" className="px-2 sm:px-4 text-xs sm:text-sm">
+                            View Details
+                          </Button>
+                        </Link>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               ))
             )}
           </div>
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12">
             <Link href="/properties">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 px-8 py-3">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 px-6 sm:px-8 py-3 text-sm sm:text-base">
                 View All Properties
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
               </Button>
             </Link>
           </div>
         </div>
       </section>
+      */}
 
       {/* Services */}
-      <section id="services" className="py-16">
+      <section id="services" className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-            <p className="text-lg text-gray-600">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Our Services</h2>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600">
               Comprehensive real estate solutions tailored to meet all your property needs
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-                <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <service.icon className="w-8 h-8 text-blue-600" />
+              <Card key={index} className="p-4 sm:p-6 text-center hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">{service.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-600">{service.description}</p>
               </Card>
             ))}
           </div>
@@ -563,42 +627,42 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 bg-blue-600">
+      <section className="py-12 sm:py-16 bg-blue-600">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">What Our Clients Say</h2>
-            <p className="text-lg text-blue-100">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">What Our Clients Say</h2>
+            <p className="text-sm sm:text-base md:text-lg text-blue-100">
               Hear from our satisfied clients who found their dream homes with Guruji Real Estate
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {testimonials.map((testimonial) => (
               <Card key={testimonial.id} className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-4 mb-4">
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                     <Image
                       src={testimonial.image || "/placeholder.svg"}
                       alt={testimonial.name}
-                      width={60}
-                      height={60}
-                      className="rounded-full object-cover"
+                      width={50}
+                      height={50}
+                      className="rounded-full object-cover w-12 h-12 sm:w-14 sm:h-14"
                     />
                     <div>
-                      <h4 className="font-semibold text-lg">{testimonial.name}</h4>
-                      <p className="text-blue-200 text-sm">{testimonial.location}</p>
+                      <h4 className="font-semibold text-base sm:text-lg">{testimonial.name}</h4>
+                      <p className="text-blue-200 text-xs sm:text-sm">{testimonial.location}</p>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-1 mb-4">
+                  <div className="flex items-center gap-1 mb-3 sm:mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <div key={i} className="w-5 h-5 text-orange-400">
+                      <div key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400">
                         ⭐
                       </div>
                     ))}
                   </div>
 
-                  <p className="text-blue-100 italic">"{testimonial.text}"</p>
+                  <p className="text-blue-100 italic text-xs sm:text-sm">"{testimonial.text}"</p>
                 </CardContent>
               </Card>
             ))}
@@ -607,50 +671,50 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 bg-gray-50">
+      <section id="about" className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">About Guruji Real Estate</h2>
-              <p className="text-lg text-gray-600 mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">About Guruji Real Estate</h2>
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-4 sm:mb-6">
                 With over 15 years of excellence in the real estate industry, Guruji Real Estate has established itself
                 as Mumbai's most trusted property consultant. We specialize in luxury residential and commercial
                 properties, delivering exceptional service and unmatched expertise.
               </p>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 sm:mb-8">
                 Our team of certified professionals is committed to understanding your unique needs and providing
                 personalized solutions that exceed expectations. From first-time buyers to seasoned investors, we guide
                 you through every step of your real estate journey.
               </p>
 
-              <div className="grid grid-cols-2 gap-8">
+              <div className="grid grid-cols-2 gap-4 sm:gap-8">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <TrendingUp className="w-8 h-8 text-blue-600" />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                    <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
                   </div>
-                  <div className="text-2xl font-bold text-blue-600 mb-1">15+</div>
-                  <div className="text-gray-600">Years Experience</div>
+                  <div className="text-xl sm:text-2xl font-bold text-blue-600 mb-1">15+</div>
+                  <div className="text-xs sm:text-sm text-gray-600">Years Experience</div>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <Users className="w-8 h-8 text-blue-600" />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                    <Users className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
                   </div>
-                  <div className="text-2xl font-bold text-blue-600 mb-1">500+</div>
-                  <div className="text-gray-600">Happy Clients</div>
+                  <div className="text-xl sm:text-2xl font-bold text-blue-600 mb-1">1000+</div>
+                  <div className="text-xs sm:text-sm text-gray-600">Happy Clients</div>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <Home className="w-8 h-8 text-blue-600" />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                    <Home className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
                   </div>
-                  <div className="text-2xl font-bold text-blue-600 mb-1">1000+</div>
-                  <div className="text-gray-600">Properties Sold</div>
+                  <div className="text-xl sm:text-2xl font-bold text-blue-600 mb-1">1000+</div>
+                  <div className="text-xs sm:text-sm text-gray-600">Properties Sold</div>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <TrendingUp className="w-8 h-8 text-orange-600" />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                    <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-orange-600" />
                   </div>
-                  <div className="text-2xl font-bold text-orange-600 mb-1">4.9</div>
-                  <div className="text-gray-600">Client Rating</div>
+                  <div className="text-xl sm:text-2xl font-bold text-orange-600 mb-1">4.9</div>
+                  <div className="text-xs sm:text-sm text-gray-600">Client Rating</div>
                 </div>
               </div>
             </div>
@@ -660,11 +724,11 @@ export default function HomePage() {
                 alt="Guruji Real Estate Team"
                 width={600}
                 height={500}
-                className="rounded-lg shadow-lg"
+                className="rounded-lg shadow-lg w-full"
               />
-              <div className="absolute -top-6 -right-6 bg-orange-500 text-white p-4 rounded-lg">
-                <div className="text-2xl font-bold">₹500Cr+</div>
-                <div className="text-sm">Properties Sold</div>
+              <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 bg-orange-500 text-white p-3 sm:p-4 rounded-lg">
+                <div className="text-lg sm:text-2xl font-bold">₹500Cr+</div>
+                <div className="text-xs sm:text-sm">Properties Sold</div>
               </div>
             </div>
           </div>
@@ -672,31 +736,31 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16">
+      <section id="contact" className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
-            <p className="text-lg text-gray-600">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Get In Touch</h2>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600">
               Ready to find your dream property? Contact our expert team today for personalized assistance
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             <div>
-              <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">Contact Information</h3>
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Phone className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Phone Numbers</h4>
-                    <p className="text-gray-600">+91 9711161007</p>
-                    <p className="text-gray-600">+91 9313069464</p>
-                    <p className="text-gray-600">+91 9873734102</p>
-                    <p className="text-gray-600">+91 8448966285</p>
-                    <Button onClick={handleWhatsApp} className="mt-2 bg-green-500 hover:bg-green-600">
+                    <p className="text-gray-600 text-sm sm:text-base">+91 9711161007</p>
+                    <p className="text-gray-600 text-sm sm:text-base">+91 9313069464</p>
+                    <p className="text-gray-600 text-sm sm:text-base">+91 9873734102</p>
+                    <p className="text-gray-600 text-sm sm:text-base mb-2">+91 8448966285</p>
+                    <Button onClick={handleWhatsApp} size="sm" className="bg-green-500 hover:bg-green-600">
                       <MessageCircle className="w-4 h-4 mr-2" />
                       WhatsApp Us
                     </Button>
@@ -704,55 +768,108 @@ export default function HomePage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Mail className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Email Address</h4>
-                    <p className="text-gray-600">Gurujirealestate005@gmail.com</p>
+                    <p className="text-gray-600 text-sm sm:text-base break-all">Gurujirealestate005@gmail.com</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Office Address</h4>
-                    <p className="text-gray-600">Shop No. F-15, I floor</p>
-                    <p className="text-gray-600">Krishna Apra Plaza, Commercial Belt</p>
-                    <p className="text-gray-600">Greater Noida, GB Nagar, Uttar Pradesh</p>
+                    <p className="text-gray-600 text-sm sm:text-base">Shop No. F-15, Ist floor</p>
+                    <p className="text-gray-600 text-sm sm:text-base">Krishna Apra Plaza, Commercial Belt</p>
+                    <p className="text-gray-600 text-sm sm:text-base">Greater Noida, GB Nagar, Uttar Pradesh</p>
                   </div>
                 </div>
               </div>
 
               {/* Map */}
               <div className="mt-8">
-                <div className="rounded-lg overflow-hidden h-64">
+                <div className="rounded-lg overflow-hidden h-48 sm:h-64">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.8234567890123!2d77.4876543!3d28.5876543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM1JzE1LjYiTiA3N8KwMjknMTUuNiJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin&q=Shop+No.+F-15,+I+floor,+krishna+Apra+Plaza,+Commercial+belt,+greater+noida,+GB+nagar+uttar+pradesh"
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3503.0!2d77.5110092!3d28.471035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDI4JzE1LjciTiA3N8KwMzAnMzkuNiJF!5e0!3m2!1sen!2sin!4v1640000000000!5m2!1sen!2sin"
                     width="100%"
-                    height="256"
+                    height="100%"
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Guruji Real Estate Office Location"
+                    className="w-full h-full cursor-pointer"
+                    onClick={() =>
+                      window.open(
+                        "https://www.google.com/maps/place/28%C2%B028'15.7%22N+77%C2%B030'39.6%22E/@28.4705299,77.5092264,15.97z/data=!4m4!3m3!8m2!3d28.471035!4d77.5110092?hl=en&entry=ttu&g_ep=EgoyMDI1MDcyOS4wIKXMDSoASAFQAw%3D%3D",
+                        "_blank",
+                      )
+                    }
                   ></iframe>
+                  {/* Mobile map overlay for better interaction */}
+                  <div
+                    className="absolute inset-0 bg-transparent cursor-pointer"
+                    onClick={() =>
+                      window.open(
+                        "https://www.google.com/maps/place/28%C2%B028'15.7%22N+77%C2%B030'39.6%22E/@28.4705299,77.5092264,15.97z/data=!4m4!3m3!8m2!3d28.471035!4d77.5110092?hl=en&entry=ttu&g_ep=EgoyMDI1MDcyOS4wIKXMDSoASAFQAw%3D%3D",
+                        "_blank",
+                      )
+                    }
+                  ></div>
+                   <div className="absolute bottom-3 right-3">
+                    <Button
+                      size="sm"
+                      className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg"
+                      onClick={() =>
+                        window.open(
+                          "https://www.google.com/maps/place/28%C2%B028'15.7%22N+77%C2%B030'39.6%22E/@28.4705299,77.5092264,15.97z/data=!4m4!3m3!8m2!3d28.471035!4d77.5110092?hl=en&entry=ttu&g_ep=EgoyMDI1MDcyOS4wIKXMDSoASAFQAw%3D%3D",
+                          "_blank",
+                        )
+                      }
+                    >
+                      <MapPin className="w-4 h-4 mr-1" />
+                      Open in Maps
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Direct Google Maps link for mobile */}
+                <div className="mt-3">
+                  <Button
+                    variant="outline"
+                    className="w-full bg-transparent"
+                    onClick={() =>
+                      window.open(
+                        "https://www.google.com/maps/place/28%C2%B028'15.7%22N+77%C2%B030'39.6%22E/@28.4705299,77.5092264,15.97z/data=!4m4!3m3!8m2!3d28.471035!4d77.5110092?hl=en&entry=ttu&g_ep=EgoyMDI1MDcyOS4wIKXMDSoASAFQAw%3D%3D",
+                        "_blank",
+                      )
+                    }
+                  >
+                    <MapPin className="w-4 h-4 mr-2" />
+                    Get Directions
+                  </Button>
+                </div>
+
+                {/* Coordinates display */}
+                <div className="mt-3 text-sm text-gray-600 text-center">
+                  <p>📍 Coordinates: 28°28'15.7"N 77°30'39.6"E</p>
                 </div>
               </div>
             </div>
 
-
             <div>
-              <h3 className="text-2xl font-semibold mb-6">Send Us a Message</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">Send Us a Message</h3>
               <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
                     <input
                       type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                       placeholder="Your first name"
                     />
                   </div>
@@ -760,7 +877,7 @@ export default function HomePage() {
                     <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
                     <input
                       type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                       placeholder="Your last name"
                     />
                   </div>
@@ -770,7 +887,7 @@ export default function HomePage() {
                   <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
                   <input
                     type="email"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -779,7 +896,7 @@ export default function HomePage() {
                   <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
                   <input
                     type="tel"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                     placeholder="+91 9999999999"
                   />
                 </div>
@@ -788,12 +905,12 @@ export default function HomePage() {
                   <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
                   <textarea
                     rows={4}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base resize-none"
                     placeholder="Tell us about your property requirements..."
                   ></textarea>
                 </div>
 
-                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
+                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 py-3 text-sm sm:text-base">
                   Send Message
                 </Button>
               </form>
@@ -803,9 +920,9 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-8 sm:py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Image
@@ -816,22 +933,22 @@ export default function HomePage() {
                   className="rounded-lg"
                 />
                 <div>
-                  <h3 className="text-xl font-bold">Guruji Real Estate</h3>
-                  <p className="text-sm text-gray-400">Premium Properties</p>
+                  <h3 className="text-lg sm:text-xl font-bold">Guruji Real Estate</h3>
+                 
                 </div>
               </div>
-              <p className="text-gray-400 mb-4">
-                Your trusted partner in finding the perfect property. Excellence in real estate since 2008.
+              <p className="text-gray-400 text-xs sm:text-sm mb-4">
+                Your trusted partner in finding the perfect property.
               </p>
-              <Button onClick={handleWhatsApp} className="bg-green-500 hover:bg-green-600">
+              <Button onClick={handleWhatsApp} size="sm" className="bg-green-500 hover:bg-green-600">
                 <MessageCircle className="w-4 h-4 mr-2" />
                 WhatsApp
               </Button>
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-gray-400">
+              <h4 className="text-base sm:text-lg font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-gray-400 text-xs sm:text-sm">
                 <li>
                   <Link href="/" className="hover:text-white">
                     Home
@@ -861,8 +978,8 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-gray-400">
+              <h4 className="text-base sm:text-lg font-semibold mb-4">Services</h4>
+              <ul className="space-y-2 text-gray-400 text-xs sm:text-sm">
                 <li>Property Buying</li>
                 <li>Property Selling</li>
                 <li>Property Rental</li>
@@ -872,20 +989,20 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-              <div className="space-y-2 text-gray-400">
+              <h4 className="text-base sm:text-lg font-semibold mb-4">Contact Info</h4>
+              <div className="space-y-2 text-gray-400 text-xs sm:text-sm">
                 <p>+91 9711161007</p>
                 <p>+919313069464</p>
                 <p>+919873734102</p>
                 <p>+918448966285</p>
-                <p>Gurujirealestate005@gmail.com</p>
+                <p className="break-all">Gurujirealestate005@gmail.com</p>
                 <p>Krishna Apra Plaza Commercial Belt , Greater Noida, UP</p>
               </div>
             </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy;  Guruji Real Estate. All rights reserved.</p>
+          <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-gray-400 text-xs sm:text-sm">
+            <p>&copy; Guruji Real Estate. All rights reserved.</p>
           </div>
         </div>
       </footer>

@@ -446,7 +446,7 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
             />
             <div>
               <h1 className="text-xl font-bold text-blue-600">Guruji Real Estate</h1>
-              <p className="text-sm text-gray-600">Premium Properties</p>
+        
             </div>
           </Link>
           <div className="flex items-center gap-4">
@@ -591,7 +591,7 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                   />
                   <div>
                     <h4 className="font-semibold">{property.agent.name}</h4>
-                    <p className="text-sm text-gray-600">Premium Properties</p>
+        
                   </div>
                 </div>
 

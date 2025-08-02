@@ -251,7 +251,7 @@ export default function AllPropertiesPage() {
             />
             <div>
               <h1 className="text-xl font-bold text-blue-600">Guruji Real Estate</h1>
-              <p className="text-sm text-gray-600">Premium Properties</p>
+            
             </div>
           </Link>
           <div className="hidden md:flex items-center gap-8">
@@ -293,7 +293,7 @@ export default function AllPropertiesPage() {
           <div className="text-center">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">All Properties</h1>
             <p className="text-lg text-gray-600 mb-8">
-              Explore our complete collection of premium properties across Mumbai and surrounding areas
+              Explore our complete collection of properties in Greater Noida
             </p>
             <div className="flex items-center justify-center text-sm text-gray-500">
               <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">
@@ -533,11 +533,11 @@ export default function AllPropertiesPage() {
                 />
                 <div>
                   <h3 className="text-xl font-bold">Guruji Real Estate</h3>
-                  <p className="text-sm text-gray-400">Premium Properties</p>
+                 
                 </div>
               </div>
               <p className="text-gray-400 mb-4">
-                Your trusted partner in finding the perfect property. Excellence in real estate since 2008.
+                Your trusted partner in finding the perfect property. 
               </p>
               <Button onClick={handleWhatsApp} className="bg-green-500 hover:bg-green-600">
                 <MessageCircle className="w-4 h-4 mr-2" />

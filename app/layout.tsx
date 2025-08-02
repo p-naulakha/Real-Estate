@@ -5,7 +5,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 
 export const metadata: Metadata = {
-  title: "Guruji Real Estate - Premium Properties",
+  title: "Guruji Real Estate ",
   description: "Find your dream home with Guruji Real Estate.",
 };
 
