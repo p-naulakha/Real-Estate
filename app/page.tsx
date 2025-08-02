@@ -400,7 +400,7 @@ export default function HomePage() {
               Find Your <span className="text-orange-500">Dream Home</span>
             </h1>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8">
-              Discover properties with Guruji Real Estate. Your trusted partner in real estate excellence.
+              Discover properties with Guruji Real Estate. Your trusted partner in real estate excellence in Greater Noida.
             </p>
 
             {/* Search Form */}
@@ -678,7 +678,7 @@ export default function HomePage() {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">About Guruji Real Estate</h2>
               <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-4 sm:mb-6">
                 With over 15 years of excellence in the real estate industry, Guruji Real Estate has established itself
-                as Mumbai's most trusted property consultant. We specialize in luxury residential and commercial
+                as Greater Noida's most trusted property consultant. We specialize in residential and commercial
                 properties, delivering exceptional service and unmatched expertise.
               </p>
               <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 sm:mb-8">
@@ -938,7 +938,7 @@ export default function HomePage() {
                 </div>
               </div>
               <p className="text-gray-400 text-xs sm:text-sm mb-4">
-                Your trusted partner in finding the perfect property.
+                Your trusted partner in finding the perfect property for you in Greater Noida.
               </p>
               <Button onClick={handleWhatsApp} size="sm" className="bg-green-500 hover:bg-green-600">
                 <MessageCircle className="w-4 h-4 mr-2" />
