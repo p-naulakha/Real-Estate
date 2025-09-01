@@ -74,6 +74,15 @@ export default function FooterFun() {
               <li>
                 <a href="/book-appointment" className="hover:text-white">Book Appointment</a>
               </li>
+              <li>
+                <a href="/terms-and-conditions" className="hover:text-white">Terms &amp; Conditions</a>
+              </li>
+              <li>
+                <a href="/privacy-policy" className="hover:text-white">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="/sitemap.xml" className="hover:text-white" target="_blank" rel="noopener">Sitemap</a>
+              </li>
             </ul>
           </div>
           <div>
