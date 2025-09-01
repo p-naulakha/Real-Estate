@@ -1,18 +1,20 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Badge } from "@/components/ui/badge"
+import Link from "next/link";
+import HeadNav from "../components/head";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
 import {
   MapPin,
-  Bed,
-  Bath,
-  Square,
-  Heart,
-  Eye,
   Home,
   DollarSign,
   Key,
@@ -22,10 +24,7 @@ import {
   Phone,
   Mail,
   MessageCircle,
-  ArrowRight,
-  Menu,
-  X,
-} from "lucide-react"
+} from "lucide-react";
 
 const properties = [
   {
@@ -37,7 +36,8 @@ const properties = [
     bedrooms: 3,
     bathrooms: 2,
     area: "1,450 sq ft",
-    image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image:
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
     featured: true,
   },
   {
@@ -49,7 +49,8 @@ const properties = [
     bedrooms: 4,
     bathrooms: 3,
     area: "3,200 sq ft",
-    image: "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image:
+      "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
     featured: true,
   },
   {
@@ -61,7 +62,8 @@ const properties = [
     bedrooms: 2,
     bathrooms: 2,
     area: "1,100 sq ft",
-    image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image:
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
     featured: false,
   },
   {
@@ -73,7 +75,8 @@ const properties = [
     bedrooms: 4,
     bathrooms: 4,
     area: "2,800 sq ft",
-    image: "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image:
+      "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
     featured: true,
   },
   {
@@ -85,7 +88,8 @@ const properties = [
     bedrooms: 1,
     bathrooms: 1,
     area: "650 sq ft",
-    image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image:
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
     featured: false,
   },
   {
@@ -97,7 +101,8 @@ const properties = [
     bedrooms: 5,
     bathrooms: 4,
     area: "4,500 sq ft",
-    image: "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image:
+      "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
     featured: false,
   },
   {
@@ -109,7 +114,8 @@ const properties = [
     bedrooms: 0,
     bathrooms: 2,
     area: "2,200 sq ft",
-    image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image:
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
     featured: false,
   },
   {
@@ -121,7 +127,8 @@ const properties = [
     bedrooms: 3,
     bathrooms: 3,
     area: "1,800 sq ft",
-    image: "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image:
+      "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
     featured: true,
   },
   {
@@ -133,254 +140,158 @@ const properties = [
     bedrooms: 4,
     bathrooms: 3,
     area: "2,500 sq ft",
-    image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image:
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
     featured: false,
   },
-]
+];
 
 const services = [
   {
     icon: Home,
-    title: "Property Buying",
-    description: "Expert guidance in finding and purchasing your dream property with complete legal assistance.",
+    title: "Buy Property in Greater Noida",
+    description:
+      "Find the best residential and commercial real estate in Greater Noida with our trusted property consultants. From affordable flats to luxury villas, we help you buy real estate in Greater Noida with ease and transparency.",
   },
   {
     icon: DollarSign,
-    title: "Property Selling",
-    description: "Get the best market value for your property with our strategic marketing and negotiation skills.",
+    title: "Sell Property in Greater Noida",
+    description:
+      "Looking to sell your property in Greater Noida? Our real estate agents ensure maximum market exposure, professional negotiation, and the best price for your property through a trusted process.",
   },
   {
     icon: Key,
-    title: "Property Rental",
-    description: "Comprehensive rental services for both landlords and tenants with hassle-free management.",
+    title: "Property Rental & Leasing",
+    description:
+      "We connect landlords and tenants with verified rental and leasing options across Greater Noida. Whether it’s residential flats or commercial property, our rental services make the process quick and hassle-free.",
   },
   {
     icon: FileText,
-    title: "Legal Documentation",
-    description: "Complete legal documentation support with verified lawyers and transparent processes.",
+    title: "Legal & Documentation Support",
+    description:
+      "Our real estate company in Greater Noida provides complete assistance with property registration, agreements, and legal documentation. Verified lawyers ensure a smooth and transparent property transaction.",
   },
   {
     icon: Users,
-    title: "Investment Consulting",
-    description: "Strategic real estate investment advice to maximize your returns and portfolio growth.",
+    title: "Real Estate Investment Consulting",
+    description:
+      "Want to invest in real estate projects in Greater Noida? Our advisors guide you through the best opportunities in residential and commercial real estate, helping you maximize ROI and long-term growth.",
   },
   {
     icon: TrendingUp,
-    title: "Market Analysis",
-    description: "In-depth market research and property valuation to make informed decisions.",
+    title: "Market Research & Property Valuation",
+    description:
+      "Get accurate real estate market analysis in Greater Noida with expert insights on property prices, trends, and investment hotspots. We help you make informed property decisions backed by data.",
   },
-]
+];
 
 const testimonials = [
   {
     id: 1,
     name: "Priya Sharma",
     location: "Delhi",
-    image: "/images/client-priya.png",
+    image: "/women.webp",
     rating: 5,
-    text: "Guruji Real Estate made my home buying journey incredibly smooth. Their expertise and dedication helped me find the perfect property within my budget.",
+    text: "I was looking to buy real estate in Greater Noida, and Guruji Real Estate made the process effortless. Their team of expert real estate agents in Greater Noida helped me find a spacious flat at the best price with complete legal support.",
   },
   {
     id: 2,
     name: "Rajesh Kumar",
     location: "Chandigarh",
-    image: "/images/client-rajesh.png",
+    image: "/men.jpg",
     rating: 5,
-    text: "Exceptional service and professional approach. They handled all the legal formalities and made the entire process hassle-free.",
+    text: "Guruji Real Estate is truly the best real estate company in Greater Noida. They guided me through selling my commercial property with ease, ensuring great returns and handling all documentation professionally.",
   },
   {
     id: 3,
     name: "Anita Desai",
     location: "Greater Noida",
-    image: "/images/client-anita.png",
+    image: "/women.webp",
     rating: 5,
-    text: "Highly recommend Guruji Real Estate for their transparency and honest guidance. They truly understand client needs and deliver excellent results.",
+    text: "If you’re searching for trusted real estate consultants in Greater Noida, I highly recommend Guruji Real Estate. Their transparent advice and deep knowledge of real estate projects in Greater Noida helped me make the right investment.",
   },
-]
-import { useState } from "react"
+];
+
+import { useState } from "react";
+import Faq02 from "@/components/faq";
 
 export default function HomePage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [searchLocation, setSearchLocation] = useState("")
-  const [searchType, setSearchType] = useState("")
-  const [searchBudget, setSearchBudget] = useState("")
-  const [filteredProperties, setFilteredProperties] = useState(properties)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchLocation, setSearchLocation] = useState("");
+  const [searchType, setSearchType] = useState("");
+  const [searchBudget, setSearchBudget] = useState("");
+  const [filteredProperties, setFilteredProperties] = useState(properties);
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/918448966285?text=Hello, I'm interested in your real estate services", "_blank")
-  }
+    window.open(
+      "https://wa.me/918448966285?text=Hello, I'm interested in your real estate services",
+      "_blank"
+    );
+  };
 
   const handleSearch = () => {
-    let filtered = properties
+    let filtered = properties;
 
     // Filter by location
     if (searchLocation && searchLocation !== "all") {
-      filtered = filtered.filter((property) => property.location.toLowerCase().includes(searchLocation.toLowerCase()))
+      filtered = filtered.filter((property) =>
+        property.location.toLowerCase().includes(searchLocation.toLowerCase())
+      );
     }
 
     // Filter by property type
     if (searchType && searchType !== "all") {
-      filtered = filtered.filter((property) => property.type.toLowerCase() === searchType.toLowerCase())
+      filtered = filtered.filter(
+        (property) => property.type.toLowerCase() === searchType.toLowerCase()
+      );
     }
 
     // Filter by budget range
     if (searchBudget && searchBudget !== "all") {
       filtered = filtered.filter((property) => {
         // Extract numeric value from price string
-        const priceStr = property.price.replace(/[^\d.]/g, '')
-        const priceValue = parseFloat(priceStr)
-        
+        const priceStr = property.price.replace(/[^\d.]/g, "");
+        const priceValue = parseFloat(priceStr);
+
         // Convert to Crores based on whether it's Lakh or Crore
-        const isLakh = property.price.includes("Lakh")
-        const priceInCrores = isLakh ? priceValue / 100 : priceValue
+        const isLakh = property.price.includes("Lakh");
+        const priceInCrores = isLakh ? priceValue / 100 : priceValue;
 
         // Apply budget filter
         switch (searchBudget) {
           case "1-2":
-            return priceInCrores >= 1 && priceInCrores <= 2
+            return priceInCrores >= 1 && priceInCrores <= 2;
           case "2-5":
-            return priceInCrores > 2 && priceInCrores <= 5
+            return priceInCrores > 2 && priceInCrores <= 5;
           case "5-10":
-            return priceInCrores > 5 && priceInCrores <= 10
+            return priceInCrores > 5 && priceInCrores <= 10;
           case "10+":
-            return priceInCrores > 10
+            return priceInCrores > 10;
           default:
-            return true
+            return true;
         }
-      })
+      });
     }
 
-    setFilteredProperties(filtered)
+    setFilteredProperties(filtered);
 
     // Scroll to properties section
-    document.getElementById("properties")?.scrollIntoView({ behavior: "smooth" })
-  }
+    document
+      .getElementById("properties")
+      ?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const resetSearch = () => {
-    setSearchLocation("")
-    setSearchType("")
-    setSearchBudget("")
-    setFilteredProperties(properties)
-  }
+    setSearchLocation("");
+    setSearchType("");
+    setSearchBudget("");
+    setFilteredProperties(properties);
+  };
 
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b sticky top-0 z-50">
-        <div className="bg-blue-600 text-white py-2 px-4 hidden sm:block">
-          <div className="max-w-7xl mx-auto flex justify-between items-center text-xs sm:text-sm">
-            <div className="flex items-center gap-2 sm:gap-6">
-              <div className="flex items-center gap-1 sm:gap-2">
-                <Phone className="w-3 h-3 sm:w-4 sm:h-4" />
-                <span>+91 9711161007</span>
-              </div>
-              <div className="flex items-center gap-1 sm:gap-2">
-                <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
-                <span className="hidden sm:inline">Gurujirealestate005@gmail.com</span>
-                <span className="sm:hidden">Email Us</span>
-              </div>
-            </div>
-            <div className="hidden md:block text-xs sm:text-sm">Greater Noida, Uttar Pradesh, India</div>
-          </div>
-        </div>
-        <nav className="max-w-7xl mx-auto px-4 py-3 sm:py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <Image
-              src="/images/guruji-logo.png"
-              alt="Guruji Real Estate Logo"
-              width={40}
-              height={40}
-              className="rounded-lg sm:w-[50px] sm:h-[50px]"
-            />
-            <div>
-              <h1 className="text-lg sm:text-xl font-bold text-blue-600">Guruji Real Estate</h1>
-            
-            </div>
-          </div>
-          <div className="hidden md:flex items-center gap-4 lg:gap-8">
-            <Link href="/" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
-              Home
-            </Link>
-            <Link href="#properties" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
-              Properties
-            </Link>
-            <Link href="#services" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
-              Services
-            </Link>
-            <Link href="#about" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
-              About
-            </Link>
-            <Link href="#contact" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
-              Contact
-            </Link>
-            <Button onClick={handleWhatsApp} className="bg-green-500 hover:bg-green-600 text-xs sm:text-sm">
-              <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-              <span className="hidden sm:inline">WhatsApp</span>
-            </Button>
-          </div>
-          <div className="md:hidden flex items-center gap-2">
-            <Button onClick={handleWhatsApp} size="sm" className="bg-green-500 hover:bg-green-600 p-2">
-              <MessageCircle className="w-4 h-4" />
-            </Button>
-            <Button variant="ghost" size="sm" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2">
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </Button>
-          </div>
-        </nav>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200 py-4 px-4">
-            <div className="flex flex-col space-y-3">
-              <Link
-                href="/"
-                className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link
-                href="#properties"
-                className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Properties
-              </Link>
-              <Link
-                href="#services"
-                className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Services
-              </Link>
-              <Link
-                href="#about"
-                className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                About
-              </Link>
-              <Link
-                href="#contact"
-                className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Contact
-              </Link>
-              <div className="pt-2 space-y-2">
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <Phone className="w-4 h-4" />
-                  <span>+91 9711161007</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <Mail className="w-4 h-4" />
-                  <span>Gurujirealestate005@gmail.com</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-      </header>
+      <HeadNav />
 
       {/* Hero Section */}
       <section
@@ -400,15 +311,21 @@ export default function HomePage() {
               Find Your <span className="text-orange-500">Dream Home</span>
             </h1>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8">
-              Discover properties with Guruji Real Estate. Your trusted partner in real estate excellence.
+              Discover properties with Guruji Real Estate. Your trusted partner
+              in real estate excellence in Greater Noida.
             </p>
 
             {/* Search Form */}
             <Card className="hidden bg-white/95 backdrop-blur-sm p-4 sm:p-6 max-w-4xl mx-auto">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
-                  <Select value={searchLocation} onValueChange={setSearchLocation}>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Location
+                  </label>
+                  <Select
+                    value={searchLocation}
+                    onValueChange={setSearchLocation}
+                  >
                     <SelectTrigger className="h-12">
                       <SelectValue placeholder="Select Location" />
                     </SelectTrigger>
@@ -421,7 +338,9 @@ export default function HomePage() {
                   </Select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Property Type
+                  </label>
                   <Select value={searchType} onValueChange={setSearchType}>
                     <SelectTrigger className="h-12">
                       <SelectValue placeholder="Any Type" />
@@ -435,7 +354,9 @@ export default function HomePage() {
                   </Select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Budget Range</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Budget Range
+                  </label>
                   <Select value={searchBudget} onValueChange={setSearchBudget}>
                     <SelectTrigger className="h-12">
                       <SelectValue placeholder="Any Budget" />
@@ -457,7 +378,11 @@ export default function HomePage() {
                       Search Properties
                     </Button>
                     {(searchLocation || searchType || searchBudget) && (
-                      <Button onClick={resetSearch} variant="outline" className="w-full h-10 text-xs sm:text-sm bg-transparent">
+                      <Button
+                        onClick={resetSearch}
+                        variant="outline"
+                        className="w-full h-10 text-xs sm:text-sm bg-transparent"
+                      >
                         Clear Filters
                       </Button>
                     )}
@@ -474,20 +399,36 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-center">
             <div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 mb-2">1000+</div>
-              <div className="text-sm sm:text-base md:text-lg">Properties Sold</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 mb-2">
+                1000+
+              </div>
+              <div className="text-sm sm:text-base md:text-lg">
+                Properties Sold
+              </div>
             </div>
             <div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 mb-2">1000+</div>
-              <div className="text-sm sm:text-base md:text-lg">Happy Clients</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 mb-2">
+                1000+
+              </div>
+              <div className="text-sm sm:text-base md:text-lg">
+                Happy Clients
+              </div>
             </div>
             <div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 mb-2">15+</div>
-              <div className="text-sm sm:text-base md:text-lg">Years Experience</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 mb-2">
+                15+
+              </div>
+              <div className="text-sm sm:text-base md:text-lg">
+                Years Experience
+              </div>
             </div>
             <div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 mb-2">50+</div>
-              <div className="text-sm sm:text-base md:text-lg">Team Members</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 mb-2">
+                50+
+              </div>
+              <div className="text-sm sm:text-base md:text-lg">
+                Team Members
+              </div>
             </div>
           </div>
         </div>
@@ -606,64 +547,30 @@ export default function HomePage() {
       <section id="services" className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Our Services</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+              Our Services
+            </h2>
             <p className="text-sm sm:text-base md:text-lg text-gray-600">
-              Comprehensive real estate solutions tailored to meet all your property needs
+              Trusted real estate company in Greater Noida offering end-to-end
+              property solutions for buying, selling, renting, and investment.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="p-4 sm:p-6 text-center hover:shadow-lg transition-shadow">
+              <Card
+                key={index}
+                className="p-4 sm:p-6 text-center hover:shadow-lg transition-shadow"
+              >
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
                   <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">{service.title}</h3>
-                <p className="text-xs sm:text-sm text-gray-600">{service.description}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-12 sm:py-16 bg-blue-600">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">What Our Clients Say</h2>
-            <p className="text-sm sm:text-base md:text-lg text-blue-100">
-              Hear from our satisfied clients who found their dream homes with Guruji Real Estate
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {testimonials.map((testimonial) => (
-              <Card key={testimonial.id} className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
-                <CardContent className="p-4 sm:p-6">
-                  <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-                    <Image
-                      src={testimonial.image || "/placeholder.svg"}
-                      alt={testimonial.name}
-                      width={50}
-                      height={50}
-                      className="rounded-full object-cover w-12 h-12 sm:w-14 sm:h-14"
-                    />
-                    <div>
-                      <h4 className="font-semibold text-base sm:text-lg">{testimonial.name}</h4>
-                      <p className="text-blue-200 text-xs sm:text-sm">{testimonial.location}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-1 mb-3 sm:mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <div key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400">
-                        ⭐
-                      </div>
-                    ))}
-                  </div>
-
-                  <p className="text-blue-100 italic text-xs sm:text-sm">"{testimonial.text}"</p>
-                </CardContent>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-600">
+                  {service.description}
+                </p>
               </Card>
             ))}
           </div>
@@ -675,16 +582,22 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">About Guruji Real Estate</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
+                About Guruji Real Estate
+              </h2>
               <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-4 sm:mb-6">
-                With over 15 years of excellence in the real estate industry, Guruji Real Estate has established itself
-                as Mumbai's most trusted property consultant. We specialize in luxury residential and commercial
-                properties, delivering exceptional service and unmatched expertise.
+                With over 15 years of excellence in the real estate industry,
+                Guruji Real Estate has established itself as Greater Noida's
+                most trusted property consultant. We specialize in residential
+                and commercial properties, delivering exceptional service and
+                unmatched expertise.
               </p>
               <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 sm:mb-8">
-                Our team of certified professionals is committed to understanding your unique needs and providing
-                personalized solutions that exceed expectations. From first-time buyers to seasoned investors, we guide
-                you through every step of your real estate journey.
+                Our team of certified professionals is committed to
+                understanding your unique needs and providing personalized
+                solutions that exceed expectations. From first-time buyers to
+                seasoned investors, we guide you through every step of your real
+                estate journey.
               </p>
 
               <div className="grid grid-cols-2 gap-4 sm:gap-8">
@@ -692,29 +605,45 @@ export default function HomePage() {
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3">
                     <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
                   </div>
-                  <div className="text-xl sm:text-2xl font-bold text-blue-600 mb-1">15+</div>
-                  <div className="text-xs sm:text-sm text-gray-600">Years Experience</div>
+                  <div className="text-xl sm:text-2xl font-bold text-blue-600 mb-1">
+                    15+
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-600">
+                    Years Experience
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3">
                     <Users className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
                   </div>
-                  <div className="text-xl sm:text-2xl font-bold text-blue-600 mb-1">1000+</div>
-                  <div className="text-xs sm:text-sm text-gray-600">Happy Clients</div>
+                  <div className="text-xl sm:text-2xl font-bold text-blue-600 mb-1">
+                    1000+
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-600">
+                    Happy Clients
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3">
                     <Home className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
                   </div>
-                  <div className="text-xl sm:text-2xl font-bold text-blue-600 mb-1">1000+</div>
-                  <div className="text-xs sm:text-sm text-gray-600">Properties Sold</div>
+                  <div className="text-xl sm:text-2xl font-bold text-blue-600 mb-1">
+                    1000+
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-600">
+                    Properties Sold
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3">
                     <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-orange-600" />
                   </div>
-                  <div className="text-xl sm:text-2xl font-bold text-orange-600 mb-1">4.9</div>
-                  <div className="text-xs sm:text-sm text-gray-600">Client Rating</div>
+                  <div className="text-xl sm:text-2xl font-bold text-orange-600 mb-1">
+                    4.9
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-600">
+                    Client Rating
+                  </div>
                 </div>
               </div>
             </div>
@@ -735,19 +664,82 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="py-12 sm:py-16 bg-blue-600">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
+              What Our Clients Say
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg text-blue-100">
+              Hear from our satisfied clients who found their dream homes with
+              Guruji Real Estate
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {testimonials.map((testimonial) => (
+              <Card
+                key={testimonial.id}
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white"
+              >
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                    <Image
+                      src={testimonial.image || "/placeholder.svg"}
+                      alt={testimonial.name}
+                      width={50}
+                      height={50}
+                      className="rounded-full object-cover w-12 h-12 sm:w-14 sm:h-14"
+                    />
+                    <div>
+                      <h4 className="font-semibold text-base sm:text-lg">
+                        {testimonial.name}
+                      </h4>
+                      <p className="text-blue-200 text-xs sm:text-sm">
+                        {testimonial.location}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-1 mb-3 sm:mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400"
+                      >
+                        ⭐
+                      </div>
+                    ))}
+                  </div>
+
+                  <p className="text-blue-100 italic text-xs sm:text-sm">
+                    "{testimonial.text}"
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Get In Touch</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+              Get In Touch
+            </h2>
             <p className="text-sm sm:text-base md:text-lg text-gray-600">
-              Ready to find your dream property? Contact our expert team today for personalized assistance
+              Invest smart in residential and commercial real estate in Greater Noida — get in touch with our experienced real estate agents in Greater Noida today.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             <div>
-              <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">Contact Information</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">
+                Contact Information
+              </h3>
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
@@ -756,11 +748,23 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Phone Numbers</h4>
-                    <p className="text-gray-600 text-sm sm:text-base">+91 9711161007</p>
-                    <p className="text-gray-600 text-sm sm:text-base">+91 9313069464</p>
-                    <p className="text-gray-600 text-sm sm:text-base">+91 9873734102</p>
-                    <p className="text-gray-600 text-sm sm:text-base mb-2">+91 8448966285</p>
-                    <Button onClick={handleWhatsApp} size="sm" className="bg-green-500 hover:bg-green-600">
+                    <p className="text-gray-600 text-sm sm:text-base">
+                      +91 9711161007
+                    </p>
+                    <p className="text-gray-600 text-sm sm:text-base">
+                      +91 9313069464
+                    </p>
+                    <p className="text-gray-600 text-sm sm:text-base">
+                      +91 9873734102
+                    </p>
+                    <p className="text-gray-600 text-sm sm:text-base mb-2">
+                      +91 8448966285
+                    </p>
+                    <Button
+                      onClick={handleWhatsApp}
+                      size="sm"
+                      className="bg-green-500 hover:bg-green-600"
+                    >
                       <MessageCircle className="w-4 h-4 mr-2" />
                       WhatsApp Us
                     </Button>
@@ -773,7 +777,9 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Email Address</h4>
-                    <p className="text-gray-600 text-sm sm:text-base break-all">Gurujirealestate005@gmail.com</p>
+                    <p className="text-gray-600 text-sm sm:text-base break-all">
+                      Gurujirealestate005@gmail.com
+                    </p>
                   </div>
                 </div>
 
@@ -783,9 +789,15 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Office Address</h4>
-                    <p className="text-gray-600 text-sm sm:text-base">Shop No. F-15, Ist floor</p>
-                    <p className="text-gray-600 text-sm sm:text-base">Krishna Apra Plaza, Commercial Belt</p>
-                    <p className="text-gray-600 text-sm sm:text-base">Greater Noida, GB Nagar, Uttar Pradesh</p>
+                    <p className="text-gray-600 text-sm sm:text-base">
+                      Shop No. F-15, Ist floor
+                    </p>
+                    <p className="text-gray-600 text-sm sm:text-base">
+                      Krishna Apra Plaza, Commercial Belt
+                    </p>
+                    <p className="text-gray-600 text-sm sm:text-base">
+                      Greater Noida, GB Nagar, Uttar Pradesh
+                    </p>
                   </div>
                 </div>
               </div>
@@ -806,7 +818,7 @@ export default function HomePage() {
                     onClick={() =>
                       window.open(
                         "https://www.google.com/maps/place/28%C2%B028'15.7%22N+77%C2%B030'39.6%22E/@28.4705299,77.5092264,15.97z/data=!4m4!3m3!8m2!3d28.471035!4d77.5110092?hl=en&entry=ttu&g_ep=EgoyMDI1MDcyOS4wIKXMDSoASAFQAw%3D%3D",
-                        "_blank",
+                        "_blank"
                       )
                     }
                   ></iframe>
@@ -816,18 +828,18 @@ export default function HomePage() {
                     onClick={() =>
                       window.open(
                         "https://www.google.com/maps/place/28%C2%B028'15.7%22N+77%C2%B030'39.6%22E/@28.4705299,77.5092264,15.97z/data=!4m4!3m3!8m2!3d28.471035!4d77.5110092?hl=en&entry=ttu&g_ep=EgoyMDI1MDcyOS4wIKXMDSoASAFQAw%3D%3D",
-                        "_blank",
+                        "_blank"
                       )
                     }
                   ></div>
-                   <div className="absolute bottom-3 right-3">
+                  <div className="absolute bottom-3 right-3">
                     <Button
                       size="sm"
                       className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg"
                       onClick={() =>
                         window.open(
                           "https://www.google.com/maps/place/28%C2%B028'15.7%22N+77%C2%B030'39.6%22E/@28.4705299,77.5092264,15.97z/data=!4m4!3m3!8m2!3d28.471035!4d77.5110092?hl=en&entry=ttu&g_ep=EgoyMDI1MDcyOS4wIKXMDSoASAFQAw%3D%3D",
-                          "_blank",
+                          "_blank"
                         )
                       }
                     >
@@ -845,7 +857,7 @@ export default function HomePage() {
                     onClick={() =>
                       window.open(
                         "https://www.google.com/maps/place/28%C2%B028'15.7%22N+77%C2%B030'39.6%22E/@28.4705299,77.5092264,15.97z/data=!4m4!3m3!8m2!3d28.471035!4d77.5110092?hl=en&entry=ttu&g_ep=EgoyMDI1MDcyOS4wIKXMDSoASAFQAw%3D%3D",
-                        "_blank",
+                        "_blank"
                       )
                     }
                   >
@@ -862,11 +874,15 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">Send Us a Message</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">
+                Send Us a Message
+              </h3>
               <form className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      First Name
+                    </label>
                     <input
                       type="text"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
@@ -874,7 +890,9 @@ export default function HomePage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Last Name
+                    </label>
                     <input
                       type="text"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
@@ -884,7 +902,9 @@ export default function HomePage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Email
+                  </label>
                   <input
                     type="email"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
@@ -893,7 +913,9 @@ export default function HomePage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Phone Number
+                  </label>
                   <input
                     type="tel"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
@@ -902,7 +924,9 @@ export default function HomePage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Message
+                  </label>
                   <textarea
                     rows={4}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base resize-none"
@@ -910,13 +934,20 @@ export default function HomePage() {
                   ></textarea>
                 </div>
 
-                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 py-3 text-sm sm:text-base">
+                <Button
+                  type="submit"
+                  className="w-full bg-blue-600 hover:bg-blue-700 py-3 text-sm sm:text-base"
+                >
                   Send Message
                 </Button>
               </form>
             </div>
           </div>
         </div>
+      </section>
+      {/* faq  */}
+      <section>
+        <Faq02 />
       </section>
 
       {/* Footer */}
@@ -933,21 +964,29 @@ export default function HomePage() {
                   className="rounded-lg"
                 />
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold">Guruji Real Estate</h3>
-                 
+                  <h3 className="text-lg sm:text-xl font-bold">
+                    Guruji Real Estate
+                  </h3>
                 </div>
               </div>
               <p className="text-gray-400 text-xs sm:text-sm mb-4">
-                Your trusted partner in finding the perfect property.
+                Your trusted partner in finding the perfect property for you in
+                Greater Noida.
               </p>
-              <Button onClick={handleWhatsApp} size="sm" className="bg-green-500 hover:bg-green-600">
+              <Button
+                onClick={handleWhatsApp}
+                size="sm"
+                className="bg-green-500 hover:bg-green-600"
+              >
                 <MessageCircle className="w-4 h-4 mr-2" />
                 WhatsApp
               </Button>
             </div>
 
             <div>
-              <h4 className="text-base sm:text-lg font-semibold mb-4">Quick Links</h4>
+              <h4 className="text-base sm:text-lg font-semibold mb-4">
+                Quick Links
+              </h4>
               <ul className="space-y-2 text-gray-400 text-xs sm:text-sm">
                 <li>
                   <Link href="/" className="hover:text-white">
@@ -978,7 +1017,9 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h4 className="text-base sm:text-lg font-semibold mb-4">Services</h4>
+              <h4 className="text-base sm:text-lg font-semibold mb-4">
+                Services
+              </h4>
               <ul className="space-y-2 text-gray-400 text-xs sm:text-sm">
                 <li>Property Buying</li>
                 <li>Property Selling</li>
@@ -989,7 +1030,9 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h4 className="text-base sm:text-lg font-semibold mb-4">Contact Info</h4>
+              <h4 className="text-base sm:text-lg font-semibold mb-4">
+                Contact Info
+              </h4>
               <div className="space-y-2 text-gray-400 text-xs sm:text-sm">
                 <p>+91 9711161007</p>
                 <p>+919313069464</p>
@@ -1007,5 +1050,5 @@ export default function HomePage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
