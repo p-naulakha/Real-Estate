@@ -23,126 +23,51 @@ import {
   Phone,
   Mail,
   MessageCircle,
+  Heart,
+  Eye,
+  Bed,
+  Bath,
+  Square,
+  ArrowRight,
 } from "lucide-react";
 
-
+// Properties JSON
 const properties = [
   {
-    id: 1,
-    title: "Luxury 3BHK Apartment",
-    location: "Bandra West, Mumbai",
-    price: "₹2.5 Crore",
-    type: "Apartment",
-    bedrooms: 3,
-    bathrooms: 2,
-    area: "1,450 sq ft",
-    image:
-      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-    featured: true,
+    serial_no: 1,
+    property_name: "Shakti Khand",
+    location: "Indirapuram",
+    property_size: "93 sq. yards",
+    BHK: "3 BHK",
+    Price: "Rs 90,00,000",
+    Photos: "/placeholder.jpg",
+    brief_description:
+      "Spacious 3 BHK flat for sale in Shakti Khand, Indirapuram. A ready-to-move property with a prime park-facing view. One of the best properties in Indirapuram Ghaziabad for families seeking modern living.",
+    Construction_status: "Ready to Move",
   },
   {
-    id: 2,
-    title: "Modern Villa with Garden",
-    location: "Juhu, Mumbai",
-    price: "₹8.5 Crore",
-    type: "Villa",
-    bedrooms: 4,
-    bathrooms: 3,
-    area: "3,200 sq ft",
-    image:
-      "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-    featured: true,
+    serial_no: 2,
+    property_name: "YEIDA Sector 20",
+    location: "Yamuna Expressway",
+    property_size: "300 sq. mtr.",
+    BHK: "Residential Plot",
+    Price: "Rs 2,10,00,000",
+    Photos: "/placeholder.jpg",
+    brief_description:
+      "Premium 300 sq. mtr. corner plot in YEIDA Sector 20, Yamuna Expressway. East-facing with dual 12 mtr. wide roads. Ideal for building your dream home near Jewar Airport — one of the fastest-growing real estate destinations in Greater Noida.",
+    Construction_status: "Plot",
   },
   {
-    id: 3,
-    title: "Spacious 2BHK Flat",
-    location: "Andheri East, Mumbai",
-    price: "₹1.8 Crore",
-    type: "Apartment",
-    bedrooms: 2,
-    bathrooms: 2,
-    area: "1,100 sq ft",
-    image:
-      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-    featured: false,
-  },
-  {
-    id: 4,
-    title: "Premium Penthouse",
-    location: "Worli, Mumbai",
-    price: "₹12.5 Crore",
-    type: "Penthouse",
-    bedrooms: 4,
-    bathrooms: 4,
-    area: "2,800 sq ft",
-    image:
-      "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-    featured: true,
-  },
-  {
-    id: 5,
-    title: "Cozy 1BHK Studio",
-    location: "Powai, Mumbai",
-    price: "₹95 Lakh",
-    type: "Studio",
-    bedrooms: 1,
-    bathrooms: 1,
-    area: "650 sq ft",
-    image:
-      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "Luxury Duplex Villa",
-    location: "Versova, Mumbai",
-    price: "₹6.8 Crore",
-    type: "Villa",
-    bedrooms: 5,
-    bathrooms: 4,
-    area: "4,500 sq ft",
-    image:
-      "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-    featured: false,
-  },
-  {
-    id: 7,
-    title: "Commercial Office Space",
-    location: "BKC, Mumbai",
-    price: "₹4.2 Crore",
-    type: "Commercial",
-    bedrooms: 0,
-    bathrooms: 2,
-    area: "2,200 sq ft",
-    image:
-      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-    featured: false,
-  },
-  {
-    id: 8,
-    title: "Sea View 3BHK Apartment",
-    location: "Marine Drive, Mumbai",
-    price: "₹5.5 Crore",
-    type: "Apartment",
-    bedrooms: 3,
-    bathrooms: 3,
-    area: "1,800 sq ft",
-    image:
-      "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-    featured: true,
-  },
-  {
-    id: 9,
-    title: "Independent House",
-    location: "Thane West, Mumbai",
-    price: "₹3.2 Crore",
-    type: "House",
-    bedrooms: 4,
-    bathrooms: 3,
-    area: "2,500 sq ft",
-    image:
-      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-    featured: false,
+    serial_no: 4,
+    property_name: "Greater Noida Delta 2",
+    location: "Greater Noida",
+    property_size: "120 sq. mtr.",
+    BHK: "CC Plot",
+    Price: "Rs 2,10,00,000",
+    Photos: "/placeholder.jpg",
+    brief_description:
+      "Prime 120 sq. mtr. completion plot available in Delta 2, Greater Noida. Located near Delta 1 Metro Station and just 1 km from Pari Chowk. One of the best investment properties in Greater Noida with excellent metro and road connectivity.",
+    Construction_status: "Plot",
   },
 ];
 
@@ -242,36 +167,12 @@ export default function HomePage() {
     // Filter by property type
     if (searchType && searchType !== "all") {
       filtered = filtered.filter(
-        (property) => property.type.toLowerCase() === searchType.toLowerCase()
+        (property) => property.BHK.toLowerCase() === searchType.toLowerCase()
       );
     }
 
     // Filter by budget range
-    if (searchBudget && searchBudget !== "all") {
-      filtered = filtered.filter((property) => {
-        // Extract numeric value from price string
-        const priceStr = property.price.replace(/[^\d.]/g, "");
-        const priceValue = parseFloat(priceStr);
-
-        // Convert to Crores based on whether it's Lakh or Crore
-        const isLakh = property.price.includes("Lakh");
-        const priceInCrores = isLakh ? priceValue / 100 : priceValue;
-
-        // Apply budget filter
-        switch (searchBudget) {
-          case "1-2":
-            return priceInCrores >= 1 && priceInCrores <= 2;
-          case "2-5":
-            return priceInCrores > 2 && priceInCrores <= 5;
-          case "5-10":
-            return priceInCrores > 5 && priceInCrores <= 10;
-          case "10+":
-            return priceInCrores > 10;
-          default:
-            return true;
-        }
-      });
-    }
+   
 
     setFilteredProperties(filtered);
 
@@ -431,150 +332,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Properties */}
-      {/*
-      <section id="properties" className="py-12 sm:py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Featured Properties</h2>
-            <p className="text-sm sm:text-base md:text-lg text-gray-600">
-              Discover our handpicked selection of properties that offer exceptional value and luxury living
-            </p>
-            {(searchLocation || searchType || searchBudget) && (
-              <div className="mt-4 flex items-center justify-center">
-                <div className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-xs sm:text-sm">
-                  {filteredProperties.length} properties found
-                  {searchLocation && ` in ${searchLocation}`}
-                  {searchType && ` • ${searchType}`}
-                  {searchBudget && ` • ₹${searchBudget} range`}
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {filteredProperties.length === 0 ? (
-              <div className="col-span-full text-center py-12">
-                <div className="max-w-md mx-auto">
-                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Home className="w-8 h-8 text-gray-400" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">No Properties Found</h3>
-                  <p className="text-gray-600 mb-4">
-                    We couldn't find any properties matching your search criteria. Try adjusting your filters.
-                  </p>
-                  <Button onClick={resetSearch} variant="outline">
-                    Clear All Filters
-                  </Button>
-                </div>
-              </div>
-            ) : (
-              filteredProperties.map((property) => (
-                <Card key={property.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="relative">
-                    <Image
-                      src={property.image || "/placeholder.svg"}
-                      alt={property.title}
-                      width={400}
-                      height={300}
-                      className="w-full h-48 sm:h-64 object-cover"
-                    />
-                    {property.featured && <Badge className="absolute top-3 left-3 bg-orange-500 text-xs sm:text-sm">Featured</Badge>}
-                    <Badge className="absolute top-3 right-3 bg-blue-600 text-xs sm:text-sm">{property.type}</Badge>
-                    <div className="absolute top-3 right-16 flex gap-1 sm:gap-2">
-                      <Button size="icon" variant="secondary" className="w-8 h-8 sm:w-9 sm:h-9">
-                        <Heart className="w-3 h-3 sm:w-4 sm:h-4" />
-                      </Button>
-                      <Button size="icon" variant="secondary" className="w-8 h-8 sm:w-9 sm:h-9">
-                        <Eye className="w-3 h-3 sm:w-4 sm:h-4" />
-                      </Button>
-                    </div>
-                  </div>
-                  <CardContent className="p-4 sm:p-6">
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2 line-clamp-2">{property.title}</h3>
-                    <div className="flex items-center text-gray-600 mb-3 sm:mb-4">
-                      <MapPin className="w-4 h-4 mr-1 flex-shrink-0" />
-                      <span className="text-xs sm:text-sm line-clamp-1">{property.location}</span>
-                    </div>
-                    <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
-                      <div className="flex items-center">
-                        <Bed className="w-4 h-4 mr-1" />
-                        <span>{property.bedrooms}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <Bath className="w-4 h-4 mr-1" />
-                        <span>{property.bathrooms}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <Square className="w-4 h-4 mr-1" />
-                        <span>{property.area}</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div className="text-lg sm:text-xl md:text-2xl font-bold text-blue-600">{property.price}</div>
-                      <div className="flex gap-1 sm:gap-2">
-                        <Button onClick={handleWhatsApp} size="sm" className="bg-green-500 hover:bg-green-600 px-2 sm:px-3">
-                          <MessageCircle className="w-4 h-4" />
-                        </Button>
-                        <Link href={`/property/${property.id}`}>
-                          <Button size="sm" className="px-2 sm:px-4 text-xs sm:text-sm">
-                            View Details
-                          </Button>
-                        </Link>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))
-            )}
-          </div>
-          <div className="text-center mt-8 sm:mt-12">
-            <Link href="/properties">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 px-6 sm:px-8 py-3 text-sm sm:text-base">
-                View All Properties
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-      */}
-
-      {/* Services */}
-      <section id="services" className="py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-              Our Services
-            </h2>
-            <p className="text-sm sm:text-base md:text-lg text-gray-600">
-              Trusted real estate company in Greater Noida offering end-to-end
-              property solutions for buying, selling, renting, and investment.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {services.map((service, index) => (
-              <Card
-                key={index}
-                className="p-4 sm:p-6 text-center hover:shadow-lg transition-shadow"
-              >
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                  <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600">
-                  {service.description}
-                </p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
+  {/* About Section */}
       <section id="about" className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
@@ -660,6 +418,105 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Featured Properties */}
+      
+         <section className="py-16">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+              Featured Properties
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600">
+              Discover our exclusive listings and find your dream property.
+            </p>
+          </div> 
+          <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProperties.length === 0 ? (
+              <div className="col-span-full text-center py-12">
+                <Home className="w-10 h-10 mx-auto text-gray-400 mb-3" />
+                <h3 className="text-xl font-semibold">No Properties Found</h3>
+                    <Button onClick={resetSearch} variant="outline" className="mt-4">Clear All Filters</Button>
+                  </div>
+                ) : (
+                  filteredProperties.map((property) => (
+                    <Card key={property.serial_no} className="overflow-hidden hover:shadow-lg transition-shadow">
+                      <Image
+                        src={property.Photos || "/placeholder.svg"}
+                        alt={property.property_name}
+                        width={400}
+                        height={300}
+                        className="w-full h-64 object-cover"
+                      />
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-2">{property.property_name}</h3>
+                        <div className="flex items-center text-gray-600 mb-4">
+                          <MapPin className="w-4 h-4 mr-1" />
+                          <span>{property.location}</span>
+                        </div>
+                        <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+                          {property.BHK && typeof property.BHK === "number" && (
+                            <div className="flex items-center"><Bed className="w-4 h-4 mr-1" />{property.BHK} BHK</div>
+                          )}
+                          <div className="flex items-center"><Square className="w-4 h-4 mr-1" />{property.property_size}</div>
+                        </div>
+                        <p className="text-sm text-gray-500 mb-4">{property["brief_description"]}</p>
+                        <div className="flex items-center justify-between">
+                          <div className="text-2xl font-bold text-blue-600">{property.Price}</div>
+                          <Button onClick={handleWhatsApp} size="sm" className="bg-green-500 hover:bg-green-600">
+                            <MessageCircle className="w-4 h-4" />
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))
+                )}
+              </div>
+              {/* show all button */}
+              <div className="text-center mt-8">
+                <Link href="/properties">
+                  <Button variant="outline">
+                    Show All Properties
+                  </Button>
+                </Link>
+              </div>
+            </section>
+     
+
+      {/* Services */}
+      <section id="services" className="py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+              Our Services
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600">
+              Trusted real estate company in Greater Noida offering end-to-end
+              property solutions for buying, selling, renting, and investment.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {services.map((service, index) => (
+              <Card
+                key={index}
+                className="p-4 sm:p-6 text-center hover:shadow-lg transition-shadow"
+              >
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-600">
+                  {service.description}
+                </p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+    
 
       {/* Testimonials */}
       <section className="py-12 sm:py-16 bg-blue-600">
