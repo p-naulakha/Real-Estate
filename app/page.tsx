@@ -40,7 +40,7 @@ const properties = [
     property_size: "93 sq. yards",
     BHK: "3 BHK",
     Price: "Rs 90,00,000",
-    Photos: "/placeholder.jpg",
+    Photos: "/placeholder-properties.jpg",
     brief_description:
       "Spacious 3 BHK flat for sale in Shakti Khand, Indirapuram. A ready-to-move property with a prime park-facing view. One of the best properties in Indirapuram Ghaziabad for families seeking modern living.",
     Construction_status: "Ready to Move",
@@ -52,7 +52,7 @@ const properties = [
     property_size: "300 sq. mtr.",
     BHK: "Residential Plot",
     Price: "Rs 2,10,00,000",
-    Photos: "/placeholder.jpg",
+    Photos: "/Greater-noida2.jpg",
     brief_description:
       "Premium 300 sq. mtr. corner plot in YEIDA Sector 20, Yamuna Expressway. East-facing with dual 12 mtr. wide roads. Ideal for building your dream home near Jewar Airport — one of the fastest-growing real estate destinations in Greater Noida.",
     Construction_status: "Plot",
@@ -64,7 +64,7 @@ const properties = [
     property_size: "120 sq. mtr.",
     BHK: "CC Plot",
     Price: "Rs 2,10,00,000",
-    Photos: "/placeholder.jpg",
+    Photos: "/Greater-noida1.avif",
     brief_description:
       "Prime 120 sq. mtr. completion plot available in Delta 2, Greater Noida. Located near Delta 1 Metro Station and just 1 km from Pari Chowk. One of the best investment properties in Greater Noida with excellent metro and road connectivity.",
     Construction_status: "Plot",
