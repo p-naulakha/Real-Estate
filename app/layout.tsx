@@ -28,6 +28,12 @@ export default function RootLayout({
             gtag('config', 'AW-17516594993');
           `,
         }} />
+        {/* Event snippet for Book appointment conversion page */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            gtag('event', 'conversion', {'send_to': 'AW-17516594993/JMGmCM3Jg5AbELGOyKBB'});
+          `,
+        }} />
       </head>
       <body>
         {children}
