@@ -34,9 +34,18 @@ export default function RootLayout({
             gtag('event', 'conversion', {'send_to': 'AW-17516594993/JMGmCM3Jg5AbELGOyKBB'});
           `,
         }} />
+        <title>Guruji Real Estate | Property Dealer in Greater Noida</title>
+        <meta name="description" content="Guruji Real Estate is a leading property dealer in Greater Noida, offering residential and commercial properties, investment consulting, and legal support. Find your dream home or perfect investment today!" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Guruji Real Estate | Property Dealer in Greater Noida" />
+        <meta property="og:description" content="Find top residential and commercial properties in Greater Noida with Guruji Real Estate. Trusted consultants for buying, selling, and investing." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://gurujirealestate.com" />
+        <meta property="og:image" content="/images/guruji-logo.png" />
       </head>
       <body>
-        {children}
+        <main role="main">{children}</main>
         <WhatsAppButton />
       </body>
     </html>

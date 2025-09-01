@@ -295,24 +295,22 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section
-        className="relative h-[400px] sm:h-[500px] md:h-[600px] bg-gradient-to-r from-black/70 to-black/50"
+        className="relative h-[400px] sm:h-[500px] md:h-[600px] bg-gradient-to-r from-black/50 to-black/50"
         style={{
-          backgroundImage:
-            'url("https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop")',
+          backgroundImage: 'url("/Greater-noida1.avif")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/70"></div>
         <div className="absolute inset-0 flex items-center justify-center px-4">
           <div className="text-center text-white max-w-4xl relative z-10">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold shadow-2xl mb-3 sm:mb-4">
               Find Your <span className="text-orange-500">Dream Home</span>
             </h1>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8">
-              Discover properties with Guruji Real Estate. Your trusted partner
-              in real estate excellence in Greater Noida.
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8">
+                Explore top residential and commercial properties in Greater Noida with Guruji Real Estate | Trusted real estate consultant for buying, selling, and investing in luxury apartments, villas, and commercial spaces. Find your perfect property and experience excellence in Greater Noida real estate.
             </p>
 
             {/* Search Form */}
@@ -399,7 +397,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-center">
             <div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 mb-2">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
                 1000+
               </div>
               <div className="text-sm sm:text-base md:text-lg">
@@ -407,15 +405,15 @@ export default function HomePage() {
               </div>
             </div>
             <div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 mb-2">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold  text-white mb-2">
                 1000+
               </div>
-              <div className="text-sm sm:text-base md:text-lg">
+              <div className="t ext-sm sm:text-base md:text-lg">
                 Happy Clients
               </div>
             </div>
             <div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 mb-2">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold  text-white mb-2">
                 15+
               </div>
               <div className="text-sm sm:text-base md:text-lg">
@@ -423,7 +421,7 @@ export default function HomePage() {
               </div>
             </div>
             <div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 mb-2">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold  text-white mb-2">
                 50+
               </div>
               <div className="text-sm sm:text-base md:text-lg">

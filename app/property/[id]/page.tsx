@@ -26,358 +26,143 @@ import {
 // Mock property data - in a real app, this would come from a database
 const getPropertyById = (id: string) => {
   const properties = {
-    "1": {
-      id: 1,
-      title: "Luxury 3BHK Apartment",
-      location: "Bandra West, Mumbai",
-      price: "₹2.5 Crore",
-      type: "Apartment",
-      bedrooms: 3,
-      bathrooms: 2,
-      area: "1,450 sq ft",
-      images: [
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-      ],
-      description:
-        "Experience luxury living in this stunning 3BHK apartment located in the heart of Bandra West. This premium property offers modern amenities, spacious rooms, and breathtaking views of the city skyline. Features contemporary design with floating wooden stairs, open-plan living, and premium finishes throughout.",
-      features: [
-        "Premium location in Bandra West",
-        "24/7 security and concierge",
-        "Swimming pool and gym",
-        "Covered parking space",
-        "High-speed internet ready",
-        "Modern modular kitchen",
-        "Balcony with city views",
-        "Power backup facility",
-      ],
-      amenities: [
-        { icon: Car, name: "Parking" },
-        { icon: Wifi, name: "Internet" },
-        { icon: Dumbbell, name: "Gym" },
-        { icon: Shield, name: "Security" },
-      ],
-      agent: {
-        name: "Guruji Real Estate",
-        phone: "+91 9999267730",
-        email: "Gurujirealestate005@gmail.com",
-      },
-    },
-    "2": {
-      id: 2,
-      title: "Modern Villa with Garden",
-      location: "Juhu, Mumbai",
-      price: "₹8.5 Crore",
-      type: "Villa",
-      bedrooms: 4,
-      bathrooms: 3,
-      area: "3,200 sq ft",
-      images: [
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-      ],
-      description:
-        "A magnificent modern villa with a beautiful garden, located in the prestigious Juhu area. This property combines contemporary design with traditional comfort, perfect for families seeking luxury and privacy.",
-      features: [
-        "Prime location in Juhu",
-        "Private garden and pool",
-        "4 spacious bedrooms",
-        "Modern architecture",
-        "High-end finishes",
-        "Multiple parking spaces",
-        "Servant quarters",
-        "Terrace garden",
-      ],
-      amenities: [
-        { icon: Car, name: "Parking" },
-        { icon: Wifi, name: "Internet" },
-        { icon: Dumbbell, name: "Pool" },
-        { icon: Shield, name: "Security" },
-      ],
-      agent: {
-        name: "Guruji Real Estate",
-        phone: "+91 9999267730",
-        email: "Gurujirealestate005@gmail.com",
-      },
-    },
-    "3": {
-      id: 3,
-      title: "Spacious 2BHK Flat",
-      location: "Andheri East, Mumbai",
-      price: "₹1.8 Crore",
-      type: "Apartment",
-      bedrooms: 2,
-      bathrooms: 2,
-      area: "1,100 sq ft",
-      images: [
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-      ],
-      description:
-        "A well-designed 2BHK apartment in Andheri East, perfect for young professionals and small families. The property offers excellent connectivity and modern amenities at an affordable price with contemporary interiors and premium finishes.",
-      features: [
-        "Excellent connectivity",
-        "Near metro station",
-        "Shopping malls nearby",
-        "Good schools in vicinity",
-        "24/7 water supply",
-        "Power backup",
-        "Covered parking",
-        "Children's play area",
-      ],
-      amenities: [
-        { icon: Car, name: "Parking" },
-        { icon: Wifi, name: "Internet" },
-        { icon: Dumbbell, name: "Gym" },
-        { icon: Shield, name: "Security" },
-      ],
-      agent: {
-        name: "Guruji Real Estate",
-        phone: "+91 9999267730",
-        email: "Gurujirealestate005@gmail.com",
-      },
-    },
-    "4": {
-      id: 4,
-      title: "Premium Penthouse",
-      location: "Worli, Mumbai",
-      price: "₹12.5 Crore",
-      type: "Penthouse",
-      bedrooms: 4,
-      bathrooms: 4,
-      area: "2,800 sq ft",
-      images: [
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-      ],
-      description:
-        "An exclusive penthouse offering panoramic city and sea views from the prestigious Worli area. This ultra-luxury property features premium finishes, private terrace, and world-class amenities for the discerning buyer.",
-      features: [
-        "Panoramic city and sea views",
-        "Private terrace garden",
-        "Premium imported fixtures",
-        "Smart home automation",
-        "Private elevator access",
-        "Jacuzzi and spa area",
-        "Wine cellar",
-        "Concierge services",
-      ],
-      amenities: [
-        { icon: Car, name: "Valet Parking" },
-        { icon: Wifi, name: "Smart Home" },
-        { icon: Dumbbell, name: "Private Gym" },
-        { icon: Shield, name: "24/7 Security" },
-      ],
-      agent: {
-        name: "Guruji Real Estate",
-        phone: "+91 9711161007",
-        email: "Gurujirealestate005@gmail.com",
-      },
-    },
-    "5": {
-      id: 5,
-      title: "Cozy 1BHK Studio",
-      location: "Powai, Mumbai",
-      price: "₹95 Lakh",
-      type: "Studio",
-      bedrooms: 1,
-      bathrooms: 1,
-      area: "650 sq ft",
-      images: [
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-      ],
-      description:
-        "A perfectly designed 1BHK studio apartment in the IT hub of Powai. Ideal for young professionals and students, offering modern amenities and excellent connectivity to major IT parks and educational institutions.",
-      features: [
-        "IT hub location",
-        "Near IIT Bombay",
-        "Metro connectivity",
-        "Shopping centers nearby",
-        "Fully furnished option",
-        "High-speed internet",
-        "Modern kitchen",
-        "Balcony with lake view",
-      ],
-      amenities: [
-        { icon: Car, name: "Parking" },
-        { icon: Wifi, name: "Internet" },
-        { icon: Dumbbell, name: "Gym" },
-        { icon: Shield, name: "Security" },
-      ],
-      agent: {
-        name: "Guruji Real Estate",
-        phone: "+91 97111610077",
-        email: "Gurujirealestate005@gmail.com",
-      },
-    },
-    "6": {
-      id: 6,
-      title: "Luxury Duplex Villa",
-      location: "Versova, Mumbai",
-      price: "₹6.8 Crore",
-      type: "Villa",
-      bedrooms: 5,
-      bathrooms: 4,
-      area: "4,500 sq ft",
-      images: [
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-      ],
-      description:
-        "A stunning duplex villa in the serene locality of Versova, offering spacious living across two floors. Perfect for large families, featuring a private garden, multiple balconies, and premium amenities.",
-      features: [
-        "Duplex design with 2 floors",
-        "Private garden and lawn",
-        "5 spacious bedrooms",
-        "Multiple balconies",
-        "Servant quarters",
-        "2-car garage",
-        "Study room",
-        "Prayer room",
-      ],
-      amenities: [
-        { icon: Car, name: "Garage" },
-        { icon: Wifi, name: "Internet" },
-        { icon: Dumbbell, name: "Garden" },
-        { icon: Shield, name: "Security" },
-      ],
-      agent: {
-        name: "Guruji Real Estate",
-        phone: "+91 9711161007",
-        email: "Gurujirealestate005@gmail.com",
-      },
-    },
-    "7": {
-      id: 7,
-      title: "Commercial Office Space",
-      location: "BKC, Mumbai",
-      price: "₹4.2 Crore",
-      type: "Commercial",
-      bedrooms: 0,
-      bathrooms: 2,
-      area: "2,200 sq ft",
-      images: [
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-      ],
-      description:
-        "Premium commercial office space in the heart of Bandra Kurla Complex, Mumbai's business district. Ideal for corporate offices, startups, and professional services with modern infrastructure and excellent connectivity.",
-      features: [
-        "Prime BKC location",
-        "Grade A office building",
-        "Central air conditioning",
-        "High-speed elevators",
-        "24/7 power backup",
-        "Ample parking space",
-        "Food court in building",
-        "Metro connectivity",
-      ],
-      amenities: [
-        { icon: Car, name: "Parking" },
-        { icon: Wifi, name: "Internet" },
-        { icon: Dumbbell, name: "Cafeteria" },
-        { icon: Shield, name: "Security" },
-      ],
-      agent: {
-        name: "Guruji Real Estate",
-        phone: "+91 9711161007",
-        email: "Gurujirealestate005@gmail.com",
-      },
-    },
-    "8": {
-      id: 8,
-      title: "Sea View 3BHK Apartment",
-      location: "Marine Drive, Mumbai",
-      price: "₹5.5 Crore",
-      type: "Apartment",
-      bedrooms: 3,
-      bathrooms: 3,
-      area: "1,800 sq ft",
-      images: [
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-      ],
-      description:
-        "An exquisite 3BHK apartment with unobstructed sea views on the iconic Marine Drive. Wake up to the sound of waves and enjoy stunning sunsets from your living room. A rare opportunity to own a piece of Mumbai's heritage.",
-      features: [
-        "Unobstructed sea views",
-        "Iconic Marine Drive location",
-        "Heritage building",
-        "High ceilings",
-        "Large windows",
-        "Vintage charm with modern amenities",
-        "Walking distance to Oval Maidan",
-        "Close to business district",
-      ],
-      amenities: [
-        { icon: Car, name: "Parking" },
-        { icon: Wifi, name: "Internet" },
-        { icon: Dumbbell, name: "Sea View" },
-        { icon: Shield, name: "Security" },
-      ],
-      agent: {
-        name: "Guruji Real Estate",
-        phone: "+91 97111610077",
-        email: "Gurujirealestate005@gmail.com",
-      },
-    },
-    "9": {
-      id: 9,
-      title: "Independent House",
-      location: "Thane West, Mumbai",
-      price: "₹3.2 Crore",
-      type: "House",
-      bedrooms: 4,
-      bathrooms: 3,
-      area: "2,500 sq ft",
-      images: [
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800",
-      ],
-      description:
-        "A beautiful independent house in the peaceful locality of Thane West. Perfect for families seeking privacy and space, featuring a private garden, terrace, and modern amenities while maintaining affordability.",
-      features: [
-        "Independent house with privacy",
-        "Private garden and terrace",
-        "4 spacious bedrooms",
-        "Separate entrance",
-        "Car parking for 2 vehicles",
-        "Good ventilation and natural light",
-        "Near schools and hospitals",
-        "Peaceful residential area",
-      ],
-      amenities: [
-        { icon: Car, name: "Parking" },
-        { icon: Wifi, name: "Internet" },
-        { icon: Dumbbell, name: "Garden" },
-        { icon: Shield, name: "Security" },
-      ],
-      agent: {
-        name: "Guruji Real Estate",
-        phone: "+91 9711161007",
-        email: "Gurujirealestate005@gmail.com",
-      },
-    },
+  "1": {
+    "id": 1,
+    "title": "Spacious 3BHK Flat in Shakti Khand",
+    "location": "Indirapuram, Ghaziabad",
+    "price": "₹90,00,000",
+    "type": "Apartment",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "area": "93 sq. yards",
+    "images": [
+      "/placeholder.jpg",
+      "/placeholder.jpg",
+      "/placeholder.jpg",
+      "/placeholder.jpg"
+    ],
+    "description": "Discover the best property in Indirapuram with this park-facing 3BHK flat in Shakti Khand, offering modern interiors, prime location, and ready-to-move convenience for families.",
+    "features": [
+      "Prime location in Indirapuram",
+      "Park-facing property",
+      "Spacious living areas",
+      "Modern design",
+      "Excellent connectivity",
+      "Ready-to-move"
+    ],
+    "amenities": [
+      { "icon": "Car", "name": "Parking" },
+      { "icon": "Shield", "name": "Security" },
+      { "icon": "Wifi", "name": "Internet Ready" }
+    ],
+    "agent": {
+      "name": "Guruji Real Estate",
+      "phone": "+91 9999267730",
+      "email": "Gurujirealestate005@gmail.com"
+    }
+  },
+  "2": {
+    "id": 2,
+    "title": "Corner Residential Plot in YEIDA Sector 20",
+    "location": "Yamuna Expressway, Greater Noida",
+    "price": "₹2,10,00,000",
+    "type": "Residential Plot",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": "300 sq. mtr.",
+    "images": [
+      "/placeholder.jpg",
+      "/placeholder.jpg",
+      "/placeholder.jpg",
+      "/placeholder.jpg"
+    ],
+    "description": "Invest in a premium 300 sq. mtr. east-facing corner plot in YEIDA Sector 20 near Jewar Airport, one of the best upcoming property hubs in Greater Noida with wide road access.",
+    "features": [
+      "Corner plot with dual 12m roads",
+      "East-facing vastu compliant",
+      "Near Jewar International Airport",
+      "Rapid development zone",
+      "Ideal for investment or self-use"
+    ],
+    "amenities": [
+      { "icon": "Map", "name": "Wide Roads" },
+      { "icon": "Shield", "name": "Gated Security" }
+    ],
+    "agent": {
+      "name": "Guruji Real Estate",
+      "phone": "+91 9999267730",
+      "email": "Gurujirealestate005@gmail.com"
+    }
+  },
+  "3": {
+    "id": 3,
+    "title": "Affordable Registered Plot in YEIDA Sector 18",
+    "location": "Yamuna Expressway, Greater Noida",
+    "price": "₹1,00,00,000",
+    "type": "Residential Plot",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": "90 sq. mtr.",
+    "images": [
+      "/placeholder.jpg",
+      "/placeholder.jpg",
+      "/placeholder.jpg",
+      "/placeholder.jpg"
+    ],
+    "description": "Secure your future with this affordable 90 sq. mtr. registered plot in Sector 18 YEIDA, just minutes from Jewar Airport, making it one of the best investment properties near Yamuna Expressway.",
+    "features": [
+      "Registered YEIDA plot",
+      "Pocket 7E location",
+      "Proximity to Jewar Airport",
+      "Growing investment hub",
+      "Ideal for residential use"
+    ],
+    "amenities": [
+      { "icon": "Map", "name": "Wide Roads" },
+      { "icon": "Tree", "name": "Green Surroundings" }
+    ],
+    "agent": {
+      "name": "Guruji Real Estate",
+      "phone": "+91 9999267730",
+      "email": "Gurujirealestate005@gmail.com"
+    }
+  },
+  "4": {
+    "id": 4,
+    "title": "Prime 120 sq. mtr. Plot in Delta 2",
+    "location": "Greater Noida",
+    "price": "₹2,10,00,000",
+    "type": "Residential Plot",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": "120 sq. mtr.",
+    "images": [
+      "/placeholder.jpg",
+      "/placeholder.jpg",
+      "/placeholder.jpg",
+      "/placeholder.jpg"
+    ],
+    "description": "Own a premium 120 sq. mtr. completion plot in Delta 2, Greater Noida, located near Pari Chowk and Delta 1 Metro, perfect for building your dream home in the best locality of Greater Noida.",
+    "features": [
+      "CC plot with clear title",
+      "Near Pari Chowk metro station",
+      "Excellent road and metro connectivity",
+      "Developed residential area",
+      "High investment potential"
+    ],
+    "amenities": [
+      { "icon": "Train", "name": "Metro Nearby" },
+      { "icon": "School", "name": "Schools Nearby" },
+      { "icon": "Shield", "name": "Safe Locality" }
+    ],
+    "agent": {
+      "name": "Guruji Real Estate",
+      "phone": "+91 9999267730",
+      "email": "Gurujirealestate005@gmail.com"
+    }
   }
+}
+
 
   return properties[id as keyof typeof properties] || null
 }

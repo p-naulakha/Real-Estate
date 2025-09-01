@@ -5,7 +5,7 @@ import { MessageCircle, Link } from "lucide-react";
 import { Button } from "./ui/button";
 
 
-export default function Footer() {
+export default function FooterFun() {
     
   const handleWhatsApp = () => {
     window.open("https://wa.me/918448966285?text=Hello, I'm interested in your real estate services", "_blank")

@@ -11,6 +11,8 @@ export default function HeadNav() {
 		window.open("https://wa.me/918448966285?text=Hello, I'm interested in your real estate services", "_blank");
 	};
 	return (
+		<>
+		
 		<header className="bg-white shadow-sm border-b sticky top-0 z-50">
 			<div className="bg-blue-600 text-white py-2 px-4 hidden sm:block">
 				<div className="max-w-7xl mx-auto flex justify-between items-center text-xs sm:text-sm">
@@ -122,5 +124,6 @@ export default function HeadNav() {
 				</div>
 			)}
 		</header>
+		</>
 	);
 }
