@@ -9,8 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/ui/input"
 import { MapPin, Bed, Bath, Square, Heart, Eye, Phone, Mail, MessageCircle, Search, ArrowLeft, Home } from "lucide-react"
 import { useState, useMemo } from "react"
-import HeadNav from "@/components/head"
-import FooterFun from "@/components/footer"
+import Head from "next/head";
 
 // Properties JSON
 const properties = [
@@ -152,8 +151,19 @@ export default function AllPropertiesPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* ---- HEADER ---- */}
-      <HeadNav />
+      {/* ---- META DATA ---- */}
+      <head>
+        <title>Properties in Greater Noida | Buy, Sell, Invest | Guruji Real Estate</title>
+        <meta name="description" content="Browse all properties for sale and investment in Greater Noida. Find flats, plots, and commercial spaces with Guruji Real Estate. Expert advice, legal support, and best deals." />
+        <meta name="keywords" content="Properties, Greater Noida, Buy Property, Sell Property, Real Estate, Plots, Flats, Commercial, Investment, Guruji Real Estate" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Properties in Greater Noida | Guruji Real Estate" />
+        <meta property="og:description" content="Explore all properties for sale and investment in Greater Noida with Guruji Real Estate. Trusted consultants for buying, selling, and investing." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://gurujirealestate.com/properties" />
+        <meta property="og:image" content="/images/guruji-logo.png" />
+      </head>
+
 
       {/* ---- PAGE HEADER ---- */}
       <section className="bg-white py-12 border-b">
@@ -256,7 +266,6 @@ export default function AllPropertiesPage() {
           )}
         </div>
       </section>
-      <FooterFun />
     </div>
   )
 }

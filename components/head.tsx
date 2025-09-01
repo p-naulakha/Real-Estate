@@ -43,27 +43,30 @@ export default function HeadNav() {
 						<h1 className="text-lg sm:text-xl font-bold text-blue-600">Guruji Real Estate</h1>
 					</div>
 				</div>
-				<div className="hidden md:flex items-center gap-4 lg:gap-8">
-					<Link href="/" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
-						Home
-					</Link>
-					<Link href="#properties" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
-						Properties
-					</Link>
-					<Link href="#services" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
-						Services
-					</Link>
-					<Link href="#about" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
-						About
-					</Link>
-					<Link href="#contact" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
-						Contact
-					</Link>
-					<Button onClick={handleWhatsApp} className="bg-green-500 hover:bg-green-600 text-xs sm:text-sm">
-						<MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-						<span className="hidden sm:inline">WhatsApp</span>
-					</Button>
-				</div>
+				   <div className="hidden md:flex items-center gap-4 lg:gap-8">
+					   <Link href="/" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
+						   Home
+					   </Link>
+					    <Link href="/about" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
+						   About
+					   </Link>
+					   <Link href="/properties" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
+						   Properties
+					   </Link>
+					   <Link href="/services" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
+						   Services
+					   </Link>
+					   <Link href="/contact" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
+						   Contact
+					   </Link>
+					   <Link href="/book-appointment" className="text-gray-700 hover:text-blue-600 text-sm lg:text-base">
+						   Book Appointment
+					   </Link>
+					   <Button onClick={handleWhatsApp} className="bg-green-500 hover:bg-green-600 text-xs sm:text-sm">
+						   <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+						   <span className="hidden sm:inline">WhatsApp</span>
+					   </Button>
+				   </div>
 				<div className="md:hidden flex items-center gap-2">
 					<Button onClick={handleWhatsApp} size="sm" className="bg-green-500 hover:bg-green-600 p-2">
 						<MessageCircle className="w-4 h-4" />
@@ -77,41 +80,48 @@ export default function HeadNav() {
 			{mobileMenuOpen && (
 				<div className="md:hidden bg-white border-t border-gray-200 py-4 px-4">
 					<div className="flex flex-col space-y-3">
-						<Link
-							href="/"
-							className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
-							onClick={() => setMobileMenuOpen(false)}
-						>
-							Home
-						</Link>
-						<Link
-							href="#properties"
-							className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
-							onClick={() => setMobileMenuOpen(false)}
-						>
-							Properties
-						</Link>
-						<Link
-							href="#services"
-							className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
-							onClick={() => setMobileMenuOpen(false)}
-						>
-							Services
-						</Link>
-						<Link
-							href="#about"
-							className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
-							onClick={() => setMobileMenuOpen(false)}
-						>
-							About
-						</Link>
-						<Link
-							href="#contact"
-							className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
-							onClick={() => setMobileMenuOpen(false)}
-						>
-							Contact
-						</Link>
+						   <Link
+							   href="/"
+							   className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
+							   onClick={() => setMobileMenuOpen(false)}
+						   >
+							   Home
+						   </Link>
+						   <Link
+							   href="/properties"
+							   className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
+							   onClick={() => setMobileMenuOpen(false)}
+						   >
+							   Properties
+						   </Link>
+						   <Link
+							   href="/services"
+							   className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
+							   onClick={() => setMobileMenuOpen(false)}
+						   >
+							   Services
+						   </Link>
+						   <Link
+							   href="/about"
+							   className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
+							   onClick={() => setMobileMenuOpen(false)}
+						   >
+							   About
+						   </Link>
+						   <Link
+							   href="/contact"
+							   className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
+							   onClick={() => setMobileMenuOpen(false)}
+						   >
+							   Contact
+						   </Link>
+						   <Link
+							   href="/book-appointment"
+							   className="text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100"
+							   onClick={() => setMobileMenuOpen(false)}
+						   >
+							   Book Appointment
+						   </Link>
 						<div className="pt-2 space-y-2">
 							<div className="flex items-center gap-2 text-sm text-gray-600">
 								<Phone className="w-4 h-4" />

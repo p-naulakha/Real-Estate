@@ -2,7 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import "./globals.css"
 import WhatsAppButton from "@/components/WhatsAppButton";
-// 
+import FooterFun from "@/components/footer";
+import HeadNav from "@/components/head";
 
 export const metadata: Metadata = {
   title: "Guruji Real Estate ",
@@ -45,8 +46,10 @@ export default function RootLayout({
         <meta property="og:image" content="/images/guruji-logo.png" />
       </head>
       <body>
+        <HeadNav />
         <main role="main">{children}</main>
         <WhatsAppButton />
+        <FooterFun />
       </body>
     </html>
   );

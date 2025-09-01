@@ -4,8 +4,6 @@ import Image from "next/image";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import HeadNav from "@/components/head";
-import Footer from "@/components/footer";  
 import Faq02 from "@/components/faq";
 
 export default function ContactPage() {
@@ -13,14 +11,20 @@ export default function ContactPage() {
 		window.open("https://wa.me/918448966285?text=Hello, I'm interested in your real estate services", "_blank");
 	};
 
-	return (
-		<div className="min-h-screen bg-gray-50">
-			<Head>
-				<title>Contact Us | Guruji Real Estate - Greater Noida Property Consultant</title>
-				<meta name="description" content="Contact Guruji Real Estate for expert property buying, selling, and rental services in Greater Noida. Get in touch for personalized real estate solutions." />
-				<meta name="keywords" content="Real Estate, Greater Noida, Property Consultant, Buy Property, Sell Property, Rent Property, Investment, Legal Documentation, Market Analysis" />
-			</Head>
-            <HeadNav />
+		return (
+			<div className="min-h-screen bg-gray-50">
+				<Head>
+					<title>Contact Us | Guruji Real Estate - Greater Noida Property Consultant</title>
+					<meta name="description" content="Contact Guruji Real Estate for expert property buying, selling, and rental services in Greater Noida. Get in touch for personalized real estate solutions." />
+					<meta name="keywords" content="Contact, Real Estate, Greater Noida, Property Consultant, Buy Property, Sell Property, Rent Property, Investment, Legal Documentation, Market Analysis" />
+					<meta name="robots" content="index, follow" />
+					<meta property="og:title" content="Contact Us | Guruji Real Estate - Greater Noida Property Consultant" />
+					<meta property="og:description" content="Contact Guruji Real Estate for expert advice on buying, selling, or renting properties in Greater Noida. Get in touch for personalized solutions." />
+					<meta property="og:type" content="website" />
+					<meta property="og:url" content="https://gurujirealestate.com/contact" />
+					<meta property="og:image" content="/images/guruji-logo.png" />
+				</Head>
+	
 			<section className="py-12 sm:py-16">
 				<div className="max-w-7xl mx-auto px-4">
 					<div className="text-center mb-8 sm:mb-12">
@@ -96,7 +100,7 @@ export default function ContactPage() {
             <section>
 				<Faq02 />
             </section>
-            <Footer />
+    
 		</div>
 	);
 }

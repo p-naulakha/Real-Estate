@@ -1,14 +1,26 @@
+
 import { TrendingUp, Users, Home, Facebook, Instagram } from "lucide-react";
 import Image from "next/image";
 import HeadNav from "@/components/head";
 import FooterFun from "@/components/footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Faq02 from "@/components/faq";
+import Head from "next/head";
 
 export default function AboutPage() {
   return (
     <div>
-      <HeadNav />
+      <Head>
+        <title>About Guruji Real Estate | Trusted Property Dealer in Greater Noida</title>
+        <meta name="description" content="Learn about Guruji Real Estate, Greater Noida's leading property dealer. Discover our experience, client satisfaction, and expertise in residential and commercial real estate." />
+        <meta name="keywords" content="About Guruji Real Estate, Property Dealer, Greater Noida, Real Estate Consultant, Residential Properties, Commercial Properties, Investment, Client Satisfaction" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="About Guruji Real Estate | Trusted Property Dealer in Greater Noida" />
+        <meta property="og:description" content="Meet Guruji Real Estate, the most trusted property consultant in Greater Noida. 15+ years experience, 1000+ happy clients, ₹500Cr+ properties sold." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://gurujirealestate.com/about" />
+        <meta property="og:image" content="/images/guruji-logo.png" />
+      </Head>
       <section id="about" className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
@@ -120,7 +132,6 @@ export default function AboutPage() {
         </div>
       </section>
       <Faq02 />
-      <FooterFun />
     </div>
   );
 }
