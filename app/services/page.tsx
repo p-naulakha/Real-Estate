@@ -91,6 +91,7 @@ export default function ServicesPage() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://gurujirealestate.com/services" />
         <meta property="og:image" content="/images/guruji-logo.png" />
+        <link rel="canonical" href="https://gurujirealestate.com/services" />
       </Head>
       <main>
         {/* Services */}

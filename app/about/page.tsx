@@ -20,6 +20,7 @@ export default function AboutPage() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://gurujirealestate.com/about" />
         <meta property="og:image" content="/images/guruji-logo.png" />
+        <link rel="canonical" href="https://gurujirealestate.com/about" />
       </Head>
       <section id="about" className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">

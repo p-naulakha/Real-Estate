@@ -12,7 +12,7 @@ export default function ContactPage() {
 	};
 
 			return (
-				<div className="min-h-screen bg-gray-50">
+				<>
 					<Head>
 						<title>Book Appointment | Guruji Real Estate - Greater Noida Property Consultant</title>
 						<meta name="description" content="Book an appointment with Guruji Real Estate for expert property buying, selling, and rental services in Greater Noida. Choose your preferred date and time for a personalized consultation." />
@@ -23,91 +23,93 @@ export default function ContactPage() {
 						<meta property="og:type" content="website" />
 						<meta property="og:url" content="https://gurujirealestate.com/book-appointment" />
 						<meta property="og:image" content="/images/guruji-logo.png" />
+						<link rel="canonical" href="https://gurujirealestate.com/book-appointment" />
 					</Head>
-					<section className="py-12 sm:py-16">
-					<div className="max-w-7xl mx-auto px-4">
-						<div className="text-center mb-8 sm:mb-12">
-							<h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 mb-3">Book an Appointment</h1>
-							<p className="text-sm sm:text-base md:text-lg text-gray-600">
-								Schedule a meeting with our expert team for personalized property consultation in Greater Noida. Select your preferred date and time below.
-							</p>
-						</div>
-						<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
-							<div>
-								<Card className="p-6 mb-8">
-									<h2 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-900">Contact Information</h2>
-									<div className="space-y-4">
-										<div className="flex items-center gap-3 text-gray-700">
-											<Phone className="w-5 h-5 text-blue-600" />
-											<span className="font-medium">+91 9711161007</span>
-										</div>
-										<div className="flex items-center gap-3 text-gray-700">
-											<Mail className="w-5 h-5 text-blue-600" />
-											<span className="font-medium">Gurujirealestate005@gmail.com</span>
-										</div>
-										<div className="flex items-center gap-3 text-gray-700">
-											<MapPin className="w-5 h-5 text-blue-600" />
-											<span className="font-medium">Greater Noida, Uttar Pradesh, India</span>
-										</div>
-									</div>
-									<div className="mt-8">
-										<Button onClick={handleWhatsApp} className="bg-green-500 hover:bg-green-600 text-white">
-											<MessageCircle className="w-4 h-4 mr-2" /> WhatsApp Us
-										</Button>
-									</div>
-								</Card>
-								<div className="rounded-lg overflow-hidden shadow-lg">
-									<Image
-										src="/images/guruji-logo.png"
-										alt="Guruji Real Estate Logo"
-										width={120}
-										height={120}
-										className="mx-auto mb-4 rounded-lg"
-									/>
-									<p className="text-center text-gray-500 text-sm mb-4">
-										Your trusted partner in property buying, selling, and rental in Greater Noida.
+					<div className="min-h-screen bg-gray-50">
+						<section className="py-12 sm:py-16">
+							<div className="max-w-7xl mx-auto px-4">
+								<div className="text-center mb-8 sm:mb-12">
+									<h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 mb-3">Book an Appointment</h1>
+									<p className="text-sm sm:text-base md:text-lg text-gray-600">
+										Schedule a meeting with our expert team for personalized property consultation in Greater Noida. Select your preferred date and time below.
 									</p>
 								</div>
+								<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+									<div>
+										<Card className="p-6 mb-8">
+											<h2 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-900">Contact Information</h2>
+											<div className="space-y-4">
+												<div className="flex items-center gap-3 text-gray-700">
+													<Phone className="w-5 h-5 text-blue-600" />
+													<span className="font-medium">+91 9711161007</span>
+												</div>
+												<div className="flex items-center gap-3 text-gray-700">
+													<Mail className="w-5 h-5 text-blue-600" />
+													<span className="font-medium">Gurujirealestate005@gmail.com</span>
+												</div>
+												<div className="flex items-center gap-3 text-gray-700">
+													<MapPin className="w-5 h-5 text-blue-600" />
+													<span className="font-medium">Greater Noida, Uttar Pradesh, India</span>
+												</div>
+											</div>
+											<div className="mt-8">
+												<Button onClick={handleWhatsApp} className="bg-green-500 hover:bg-green-600 text-white">
+													<MessageCircle className="w-4 h-4 mr-2" /> WhatsApp Us
+												</Button>
+											</div>
+										</Card>
+										<div className="rounded-lg overflow-hidden shadow-lg">
+											<Image
+												src="/images/guruji-logo.png"
+												alt="Guruji Real Estate Logo"
+												width={120}
+												height={120}
+												className="mx-auto mb-4 rounded-lg"
+											/>
+											<p className="text-center text-gray-500 text-sm mb-4">
+												Your trusted partner in property buying, selling, and rental in Greater Noida.
+											</p>
+										</div>
+									</div>
+									<div>
+										<Card className="p-6">
+											<h2 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-900">Book Your Appointment</h2>
+											<form className="space-y-6">
+												<div>
+													<label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+													<input type="text" id="name" name="name" required className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Name" />
+												</div>
+												<div>
+													<label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+													<input type="email" id="email" name="email" required className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Email" />
+												</div>
+												<div>
+													<label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+													<input type="tel" id="phone" name="phone" className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Phone Number" />
+												</div>
+												<div>
+													<label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">Preferred Date</label>
+													<input type="date" id="date" name="date" required className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+												</div>
+												<div>
+													<label htmlFor="time" className="block text-sm font-medium text-gray-700 mb-1">Preferred Time</label>
+													<input type="time" id="time" name="time" required className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+												</div>
+												<div>
+													<label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+													<textarea id="message" name="message" rows={4} className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="How can we help you?" />
+												</div>
+												<Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg">Book Appointment</Button>
+											</form>
+										</Card>
+									</div>
+								</div>
 							</div>
-							<div>
-								<Card className="p-6">
-									<h2 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-900">Book Your Appointment</h2>
-									<form className="space-y-6">
-										<div>
-											<label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-											<input type="text" id="name" name="name" required className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Name" />
-										</div>
-										<div>
-											<label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-											<input type="email" id="email" name="email" required className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Email" />
-										</div>
-										<div>
-											<label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-											<input type="tel" id="phone" name="phone" className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Phone Number" />
-										</div>
-										<div>
-											<label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">Preferred Date</label>
-											<input type="date" id="date" name="date" required className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-										</div>
-										<div>
-											<label htmlFor="time" className="block text-sm font-medium text-gray-700 mb-1">Preferred Time</label>
-											<input type="time" id="time" name="time" required className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-										</div>
-										<div>
-											<label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-											<textarea id="message" name="message" rows={4} className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="How can we help you?" />
-										</div>
-										<Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg">Book Appointment</Button>
-									</form>
-								</Card>
-							</div>
-						</div>
+						</section>
+						<section>
+							<Faq02 />
+						</section>
 					</div>
-				</section>
-				<section>
-					<Faq02 />
-				</section>
-
-			</div>
-		);
+				</>
+			);
 	}

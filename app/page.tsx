@@ -31,6 +31,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+import Head from "next/head";
 // Properties JSON
 const properties = [
   {
@@ -190,10 +191,27 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen">
+    <>
+      <Head>
+        <title>Guruji Real Estate | Buy, Sell, Rent Properties in Greater Noida</title>
+        <meta name="description" content="Find your dream home, plot, or commercial property in Greater Noida with Guruji Real Estate. Trusted consultants for buying, selling, and investing. Expert advice, legal support, and best deals." />
+        <meta name="keywords" content="Real Estate, Greater Noida, Buy Property, Sell Property, Plots, Flats, Commercial, Investment, Guruji Real Estate" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Guruji Real Estate | Buy, Sell, Rent Properties in Greater Noida" />
+        <meta property="og:description" content="Find your dream home, plot, or commercial property in Greater Noida with Guruji Real Estate. Trusted consultants for buying, selling, and investing." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://gurujirealestate.in/" />
+        <meta property="og:image" content="/images/guruji-logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Guruji Real Estate | Buy, Sell, Rent Properties in Greater Noida" />
+        <meta name="twitter:description" content="Find your dream home, plot, or commercial property in Greater Noida with Guruji Real Estate." />
+        <meta name="twitter:image" content="/images/guruji-logo.png" />
+        <link rel="canonical" href="https://gurujirealestate.in/" />
+      </Head>
+      <div className="min-h-screen">
 
 
-      {/* Hero Section */}
+  {/* Hero Section */}
       <section
         className="relative h-[400px] sm:h-[500px] md:h-[600px] bg-gradient-to-r from-black/50 to-black/50"
         style={{
@@ -806,5 +824,6 @@ export default function HomePage() {
 
  
     </div>
+    </>
   );
 }

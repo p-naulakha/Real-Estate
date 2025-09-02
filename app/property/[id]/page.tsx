@@ -23,6 +23,8 @@ import {
   Mail,
 } from "lucide-react"
 
+import Head from "next/head"
+
 // Mock property data - in a real app, this would come from a database
 const getPropertyById = (id: string) => {
   const properties = {
@@ -201,8 +203,13 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
     )
   }
 
+  const id = params.id;
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <Head>
+        <link rel="canonical" href={`https://gurujirealestate.in/property/${id}`} />
+      </Head>
+      <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="bg-blue-600 text-white py-2 px-4">
@@ -350,7 +357,7 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {property.amenities.map((amenity, index) => (
                     <div key={index} className="flex flex-col items-center text-center p-4 bg-gray-50 rounded-lg">
-                      <amenity.icon className="w-8 h-8 text-blue-600 mb-2" />
+                      {/* <amenity.icon className="w-8 h-8 text-blue-600 mb-2" /> */}
                       <span className="text-sm">{amenity.name}</span>
                     </div>
                   ))}
@@ -445,5 +452,6 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
         </div>
       </div>
     </div>
+    </>
   )
 }

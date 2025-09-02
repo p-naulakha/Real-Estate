@@ -23,6 +23,7 @@ export default function ContactPage() {
 					<meta property="og:type" content="website" />
 					<meta property="og:url" content="https://gurujirealestate.com/contact" />
 					<meta property="og:image" content="/images/guruji-logo.png" />
+					<link rel="canonical" href="https://gurujirealestate.com/contact" />
 				</Head>
 	
 			<section className="py-12 sm:py-16">

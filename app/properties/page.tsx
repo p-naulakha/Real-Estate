@@ -153,6 +153,7 @@ export default function AllPropertiesPage() {
     <div className="min-h-screen bg-gray-50">
       {/* ---- META DATA ---- */}
       <head>
+        <link rel="canonical" href="https://gurujirealestate.in/properties" />
         <title>Properties in Greater Noida | Buy, Sell, Invest | Guruji Real Estate</title>
         <meta name="description" content="Browse all properties for sale and investment in Greater Noida. Find flats, plots, and commercial spaces with Guruji Real Estate. Expert advice, legal support, and best deals." />
         <meta name="keywords" content="Properties, Greater Noida, Buy Property, Sell Property, Real Estate, Plots, Flats, Commercial, Investment, Guruji Real Estate" />
@@ -162,6 +163,7 @@ export default function AllPropertiesPage() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://gurujirealestate.com/properties" />
         <meta property="og:image" content="/images/guruji-logo.png" />
+        
       </head>
 
 
