@@ -350,7 +350,7 @@ export default function HomePage() {
         </div>
       </section>
 
-  {/* About Section */}
+      {/* About Section */}
       <section id="about" className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
@@ -437,67 +437,97 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Properties */}
-      
-         <section className="py-16">
-          <div className="text-center mb-12">
+
+
+      {/* News Section */}
+  <section className="relative w-full h-[80vh] md:h-[100vh] flex items-center justify-end bg-black">
+        <Image
+          src="/news1.jpg"
+          alt="Jewar Airport Boosts Property Prices"
+          fill
+          priority
+          className="object-cover w-full h-full absolute inset-0 z-0"
+        />
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div className="relative z-20 w-full md:w-1/2 h-full flex items-center justify-end pr-8">
+          <div className="bg-white/90 rounded-lg shadow-lg p-8 max-w-lg ml-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              Featured Properties
+              Real Estate News & Updates
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-gray-600">
-              Discover our exclusive listings and find your dream property.
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6">
+              Stay updated with the latest trends, news, and insights in Greater Noida real estate.
             </p>
-          </div> 
-          <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProperties.length === 0 ? (
-              <div className="col-span-full text-center py-12">
-                <Home className="w-10 h-10 mx-auto text-gray-400 mb-3" />
-                <h3 className="text-xl font-semibold">No Properties Found</h3>
-                    <Button onClick={resetSearch} variant="outline" className="mt-4">Clear All Filters</Button>
-                  </div>
-                ) : (
-                  filteredProperties.map((property) => (
-                    <Card key={property.serial_no} className="overflow-hidden hover:shadow-lg transition-shadow">
-                      <Image
-                        src={property.Photos || "/placeholder.svg"}
-                        alt={property.property_name}
-                        width={400}
-                        height={300}
-                        className="w-full h-64 object-cover"
-                      />
-                      <CardContent className="p-6">
-                        <h3 className="text-xl font-semibold mb-2">{property.property_name}</h3>
-                        <div className="flex items-center text-gray-600 mb-4">
-                          <MapPin className="w-4 h-4 mr-1" />
-                          <span>{property.location}</span>
-                        </div>
-                        <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
-                          {property.BHK && typeof property.BHK === "number" && (
-                            <div className="flex items-center"><Bed className="w-4 h-4 mr-1" />{property.BHK} BHK</div>
-                          )}
-                          <div className="flex items-center"><Square className="w-4 h-4 mr-1" />{property.property_size}</div>
-                        </div>
-                        <p className="text-sm text-gray-500 mb-4">{property["brief_description"]}</p>
-                        <div className="flex items-center justify-between">
-                          <div className="text-2xl font-bold text-blue-600">{property.Price}</div>
-                          <Button onClick={handleWhatsApp} size="sm" className="bg-green-500 hover:bg-green-600">
-                            <MessageCircle className="w-4 h-4" />
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))
-                )}
-              </div>
-              {/* show all button */}
-              <div className="text-center mt-8">
-                <Link href="/properties">
-                  <Button variant="outline">
-                    Show All Properties
-                  </Button>
-                </Link>
-              </div>
-            </section>
+            <h3 className="text-xl font-bold mb-2 text-blue-700">DTR Group Secures Landmark Plot in Greater Noida</h3>
+            <p className="text-sm text-gray-700 mb-3">We are proud to share that DTR Group has successfully secured a 2313 sq. mtr commercial plot in Delta II through the GNIDA auction.</p>
+            <p className="text-sm text-gray-700 mb-3">This milestone marks the beginning of our maiden project in Greater Noida — a world-class development that will bring international design, luxury experiences, and modern infrastructure to the city.</p>
+            <p className="text-sm text-gray-700 mb-3">Strategically located in Delta II, this upcoming project is set to redefine commercial and lifestyle spaces in one of India’s fastest-growing hubs.</p>
+            <p className="text-sm text-gray-700 mb-3">👉 Official unveiling coming soon. Stay tuned!</p>
+            <p className="text-sm text-gray-900 font-semibold mt-4">Delta II, Greater Noida – A New Chapter Begins</p>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Featured Properties */}
+      <section className="py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+            Featured Properties
+          </h2>
+          <p className="text-sm sm:text-base md:text-lg text-gray-600">
+            Discover our exclusive listings and find your dream property.
+          </p>
+        </div> 
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProperties.length === 0 ? (
+            <div className="col-span-full text-center py-12">
+              <Home className="w-10 h-10 mx-auto text-gray-400 mb-3" />
+              <h3 className="text-xl font-semibold">No Properties Found</h3>
+                  <Button onClick={resetSearch} variant="outline" className="mt-4">Clear All Filters</Button>
+                </div>
+              ) : (
+                filteredProperties.map((property) => (
+                  <Card key={property.serial_no} className="overflow-hidden hover:shadow-lg transition-shadow">
+                    <Image
+                      src={property.Photos || "/placeholder.svg"}
+                      alt={property.property_name}
+                      width={400}
+                      height={300}
+                      className="w-full h-64 object-cover"
+                    />
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-semibold mb-2">{property.property_name}</h3>
+                      <div className="flex items-center text-gray-600 mb-4">
+                        <MapPin className="w-4 h-4 mr-1" />
+                        <span>{property.location}</span>
+                      </div>
+                      <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+                        {property.BHK && typeof property.BHK === "number" && (
+                          <div className="flex items-center"><Bed className="w-4 h-4 mr-1" />{property.BHK} BHK</div>
+                        )}
+                        <div className="flex items-center"><Square className="w-4 h-4 mr-1" />{property.property_size}</div>
+                      </div>
+                      <p className="text-sm text-gray-500 mb-4">{property["brief_description"]}</p>
+                      <div className="flex items-center justify-between">
+                        <div className="text-2xl font-bold text-blue-600">{property.Price}</div>
+                        <Button onClick={handleWhatsApp} size="sm" className="bg-green-500 hover:bg-green-600">
+                          <MessageCircle className="w-4 h-4" />
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))
+              )}
+            </div>
+            {/* show all button */}
+            <div className="text-center mt-8">
+              <Link href="/properties">
+                <Button variant="outline">
+                  Show All Properties
+                </Button>
+              </Link>
+            </div>
+      </section>
      
 
       {/* Services */}
