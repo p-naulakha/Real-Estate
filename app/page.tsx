@@ -662,6 +662,9 @@ export default function HomePage() {
                     <p className="text-gray-600 text-sm sm:text-base mb-2">
                       +91 8448966285
                     </p>
+                    <p className="text-gray-600 text-sm sm:text-base mb-2">
+                      +91 9311538050
+                    </p>
                     <Button
                       onClick={handleWhatsApp}
                       size="sm"
