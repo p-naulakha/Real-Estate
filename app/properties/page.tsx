@@ -20,7 +20,7 @@ const properties = [
     property_size: "93 sq. mtr.",
     BHK: "3",
     Price: "Rs 9000000",
-    Photos: "/placeholder.jpg",
+    Photos: "/Greater-noida1.avif",
     brief_description:
       "3 BHK Flat available for sale in Shakti Khand Indirapuram Ghaziabad,it is a ready to move in property, this flat is on first floor of building and it is a park facing property.",
     Construction_status: "",
@@ -32,7 +32,7 @@ const properties = [
     property_size: "300 sq. mtr.",
     BHK: "PLOT",
     Price: "Rs 21000000",
-    Photos: "/placeholder.jpg",
+    Photos: "/Greater-noida2.jpg",
     brief_description:
       "IT IS A CORNER PLOT WITH BOTH SIDE 12 MTR WIDE ROAD AND EAST FACING SITUATED IN SECTOR 20 YAMUNA EXPRESSWAY NEAR JEWAR AIRPORT",
     Construction_status: "",
@@ -44,7 +44,7 @@ const properties = [
     property_size: "90 sq. mtr.",
     BHK: "PLOT",
     Price: "Rs 10000000",
-    Photos: "/placeholder.jpg",
+    Photos: "/placeholder-properties.jpg",
     brief_description:
       "IT IS A 90 SQ.MTR. GENERAL REGISTERED PLOT SITUATED IN POCKET 7 E SECTOR 18 YAMUNA EXPRESSWAY",
     Construction_status: "",
@@ -56,7 +56,7 @@ const properties = [
     property_size: "120 sq. mtr.",
     BHK: "Completion ",
     Price: "Rs 21000000",
-    Photos: "/placeholder.jpg",
+    Photos: "/Greater-noida2.jpg",
     brief_description:
       "IT IS A 120 SQ.MTR. CC PLOT AVAILABLE FOR SALE IN SECTOR DELTA 2 GREATER NOIDA, IT IS LOCATED NEAR DELTA 1 METRO STATION AND IT ONLY HAS 1 KM DISTANCE FROM PARI CHOWK",
     Construction_status: "",
@@ -68,7 +68,7 @@ const properties = [
     property_size: "500 sq. mtr.",
     BHK: "plot",
     Price: "Rs 35000000",
-    Photos: "/placeholder.jpg",
+    Photos: "/placeholder-properties.jpg",
     brief_description:
       "IT IS A 500SQ.MTR. PLOT AVAILABLE FOR SALE IN POCKET U SECTOR 20 YAMUNA EXPRESSWAY NEAR JEWAR AIRPORT. THIS POCKET IS LOCATED NEAR FILM CITY SECTOR 21.",
     Construction_status: "",
@@ -80,7 +80,7 @@ const properties = [
     property_size: "200 sq. mtr.",
     BHK: "Completion ",
     Price: "Rs 32500000",
-    Photos: "/placeholder.jpg",
+    Photos: "/Greater-noida1.avif",
     brief_description:
       "IT IS A 200SQ.MTR. COMPLETION PLOT AVAILBLE FOR SALE IN SECTOR ALPHA 1 GREATER NOIDA, THIS PLOT IS LOCATED IN POCKET A IT IS A GENERAL PLOT",
     Construction_status: "",
@@ -92,7 +92,7 @@ const properties = [
     property_size: "200 sq. mtr.",
     BHK: "Completion ",
     Price: "ON CALL",
-    Photos: "/placeholder.jpg",
+    Photos: "/Greater-noida1.avif",
     brief_description:
       "IT IS A 200SQ.MTR. COMPLETION PLOT AVAILBLE FOR SALE IN SECTOR DELTA 2 GREATER NOIDA, THIS PLOT IS LOCATED IN POCKET H IT IS A GENERAL PLOT",
     Construction_status: "",
@@ -104,7 +104,7 @@ const properties = [
     property_size: "1000 sq. mtr.",
     BHK: "plot",
     Price: "ON CALL",
-    Photos: "/placeholder.jpg",
+    Photos: "/Greater-noida2.jpg",
     brief_description:
       "IT IS A 1000SQ.MTR. PLOT AVAILABLE FOR SALE IN YAMUNA EXPRESSWAY NEAR JEWAR AIRPORT, THIS PLOT IS LOCATED IN POCKET D THIS IS A PARK FACING PLOT WITH NORTHEAST FACING",
     Construction_status: "",
@@ -116,7 +116,7 @@ const properties = [
     property_size: "120 sq. mtr.",
     BHK: "Completion ",
     Price: "on call",
-    Photos: "/placeholder.jpg",
+    Photos: "/Greater-noida1.avif",
     brief_description:
       "IT IS A 120 SQ.MTR. CC PLOT AVAILABLE FOR SALE IN SECTOR BETA 2 GREATER NOIDA, IT IS LOCATED NEAR METRO STATION AND IT ONLY HAS 1 KM DISTANCE FROM PARI CHOWK",
     Construction_status: "",
@@ -128,7 +128,7 @@ const properties = [
     property_size: "120 sq. mtr.",
     BHK: "PLOT",
     Price: "on call",
-    Photos: "/placeholder.jpg",
+    Photos: "/placeholder-properties.jpg",
     brief_description:
       "IT IS A 120 SQ.MTR. PLOT AVAILABLE FOR SALE IN SECTOR 17 YAMUNA EXPRESSWAY IT IS A PARK FACING PLOT THIS SECTOR IS LOCATED NEAR 120 MTR HIGHWAY",
     Construction_status: "",
@@ -140,7 +140,7 @@ const properties = [
     property_size: "1000 sq. mtr.",
     BHK: "Completion ",
     Price: "on call",
-    Photos: "/placeholder.jpg",
+    Photos: "/Greater-noida1.avif",
     brief_description:
       "IT IS A 1000SQ.MTR. PLOT AVAILABLE FOR SALE IN GREATER NOIDA, THIS SECTOR IS LOCATED NEAR YAMUNA EXPRESSWAY THIS IS A PARK FACING PLOT WITH NORTHEAST FACING",
     Construction_status: "",
